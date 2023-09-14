@@ -3,9 +3,7 @@
 
 // // get styles
 import "./resources/styles/app.css"
-//
-// // get scripts
-// import './assets/js/scripts.js'
+
 
 /*
 document.querySelector('#app').innerHTML = `

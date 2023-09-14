@@ -200,5 +200,6 @@ add_action('wp_ajax_my_action', function () {
 
 // For non logged-in users
 add_action('wp_ajax_nopriv_my_action', function () {
-    dd('gay');
+    echo view('components.package', $_POST["item"])->render();
+    die();
 });

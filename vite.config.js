@@ -47,12 +47,12 @@ export default defineConfig({
                 main: resolve( __dirname + '/main.js')
             },
 
-            /*
+
             output: {
                 entryFileNames: `[name].js`,
                 chunkFileNames: `[name].js`,
                 assetFileNames: `[name].[ext]`
-            }*/
+            }
         },
 
         // minifying switch

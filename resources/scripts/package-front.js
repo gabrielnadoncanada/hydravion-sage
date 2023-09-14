@@ -171,8 +171,8 @@
             const $currentPost = $(CURRENT_POST_EL);
 
 
-
             if (selectedItem && $dynamicPost.length) {
+
                 $currentPost.hide();
                 switch (type) {
                     case 'region':
@@ -196,7 +196,6 @@
                 }
 
                 let html = '';
-
 
                 $.ajax({
                     type: 'POST',
@@ -225,8 +224,6 @@
                         console.log(error);
                     }
                 });
-
-
 
                 this.initSwiper();
             } else {

@@ -1,0 +1,68 @@
+@layer base {
+
+    body, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h6, .h6, .btn, .categories a {
+        font-size: clamp(calc(var(--min-font-size) * 1px), calc(var(--font-size) * 1px), calc(var(--font-size) / (1920 / 100) * 1vw));
+        line-height: calc(var(--line-height-px) / var(--font-size));
+    }
+
+    body {
+        --font-size: 20;
+        --min-font-size: 18;
+        --line-height-px: 30;
+
+    }
+
+    h1 {
+        @apply text-white font-semibold;
+    }
+
+    /*h1, .h1, h2, .h2, h3, .h3, h4, .h4, h6, .h6 {*/
+    /*    @apply font-display;*/
+    /*}*/
+
+    h1,
+    .h1 {
+        --font-size: 60;
+        --min-font-size: 40;
+        --line-height-px: 60;
+    }
+
+    h2,
+    .h2 {
+        --font-size: 36;
+        --min-font-size: 30;
+        --line-height-px: 36;
+    }
+
+    .categories a {
+        --font-size: 18;
+        --min-font-size: 14;
+        --line-height-px: 18;
+    }
+    /*h3,*/
+    /*.h3 {*/
+    /*    --font-size: 48;*/
+    /*    --min-font-size: 34;*/
+    /*    --line-height-px: 48;*/
+    /*}*/
+
+    /*h4,*/
+    /*.h4 {*/
+    /*    --font-size: 36;*/
+    /*    --min-font-size: 32;*/
+    /*    --line-height-px: 36;*/
+    /*}*/
+
+    /*h6,*/
+    /*.h6 {*/
+    /*    --font-size: 22;*/
+    /*    --min-font-size: 18;*/
+    /*    --line-height-px: 28;*/
+    /*}*/
+
+    /*.btn {*/
+    /*    --font-size: 32;*/
+    /*    --min-font-size: 16;*/
+    /*    --line-height-px: 32;*/
+    /*}*/
+}

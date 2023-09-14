@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="dynamic-post "></div>
+    <div id="dynamic-post"></div>
 
     <div id="current-post" x-init="
   if (window.matchMedia('(min-width: 1025px)').matches) {
@@ -21,13 +21,13 @@
             </div>
 
 
-            <x-video
-                src="https://player.vimeo.com/video/830266264?h=db57139e05&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;background=1&amp;muted=1"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowfullscreen=""
-                data-ready="true">
-                <script src="https://player.vimeo.com/api/player.js"></script>
-            </x-video>
+{{--            <x-video--}}
+{{--                src="https://player.vimeo.com/video/830266264?h=db57139e05&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;background=1&amp;muted=1"--}}
+{{--                allow="autoplay; fullscreen; picture-in-picture"--}}
+{{--                allowfullscreen=""--}}
+{{--                data-ready="true">--}}
+{{--                <script src="https://player.vimeo.com/api/player.js"></script>--}}
+{{--            </x-video>--}}
 {{--            <div>--}}
 {{--                <div class="vimeo-wrapper">--}}
 {{--                    <iframe--}}

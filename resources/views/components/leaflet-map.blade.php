@@ -1,5 +1,8 @@
+@props([
+    "show" => "window.leafletmap",
+])
 <div>
-    <div id="leaflet-container" class="mt-12" x-show="window.leafletmap">
+    <div id="leaflet-container" class="mt-12" :x-show="$show">
         <div id="map" style="height:750px"></div>
         <div class="leaflet-modal">
             <div class="leaflet-modal-content">

@@ -3,8 +3,7 @@
 @import "./menu.css";
 @import "./gravity-form.css";
 @import './typography.css';
-@import './gravity.css';
-/*@import './typography2.css';*/
+@import './typography2.css';
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -69,10 +68,12 @@ body {
     display: none;
 }
 
-
+input {
+    -webkit-appearance: none;
+}
 select {
     -webkit-appearance: none;
-    line-height: 1.5 !important;
+
 }
 
 .gfield_label {
@@ -81,20 +82,5 @@ select {
 .ginput_container_select {
     position: relative;
 
-}
-.ginput_container_select:after {
-    content: "";
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M6 8L0.803847 0.5L11.1962 0.500001L6 8Z' fill='%23AAC9E9'/%3E%3C/svg%3E");
-    order: 3;
-    margin-left: 30px;
-    height: 10px;
-    width: 16px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 50%;
-    right: 1rem;
-    transform: translateY(-50%);
 }
 

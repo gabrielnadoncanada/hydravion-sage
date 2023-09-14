@@ -54,7 +54,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="flex flex-col md:flex-row z-[9999] -mt-[1rem] pb-[50px] lg:pb-0 lg:mt-0 gap-y-2 relative md:fixed bottom-0 w-full left-0 justify-between md:items-center lg:bg-foreground-gray py-2 px-6">
+	<div class="flex flex-col md:flex-row z-[99999] -mt-[1rem] pb-[50px] lg:pb-0 lg:mt-0 gap-y-2 relative md:fixed bottom-0 w-full left-0 justify-between md:items-center lg:bg-foreground-gray py-2 px-6">
 		<a href="#nous-joindre" class="text-sm text-left leading-6 text-white hover:text-secondary"
 		>{{ __('Contact us', 'ng') }}</a>
 		<p class="text-sm leading-6 text-white">{!!  '@' . date("Y") . "&nbsp;" . __('Hydravion Québec - All rights reserved', 'ng')!!} </p>

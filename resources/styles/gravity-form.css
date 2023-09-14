@@ -7,7 +7,7 @@
 }
 
 .gfield_select {
-    @apply pl-3
+    @apply pl-[1rem]
 }
 
 .gfield {

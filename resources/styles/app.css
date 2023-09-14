@@ -71,5 +71,30 @@ body {
 
 
 select {
-    line-height: 60px !important;
+    -webkit-appearance: none;
+    line-height: 1.5 !important;
 }
+
+.gfield_label {
+    z-index: 2;
+}
+.ginput_container_select {
+    position: relative;
+
+}
+.ginput_container_select:after {
+    content: "";
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M6 8L0.803847 0.5L11.1962 0.500001L6 8Z' fill='%23AAC9E9'/%3E%3C/svg%3E");
+    order: 3;
+    margin-left: 30px;
+    height: 10px;
+    width: 16px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+}
+

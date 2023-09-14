@@ -1,5 +1,5 @@
 
-.gform_wrapper {
+.gform_wrapper.gravity-theme {
     .gfield_select, .gfield input, .gfield textarea, .ginput_product_price_wrapper, .gform_button {
         @apply bg-primary-dark rounded-md min-h-[60px] w-full text-white font-medium text-sm leading-6 max-w-full;
 
@@ -33,7 +33,8 @@
     }
 
     .gsection.accordion {
-        @apply rounded-t-md bg-primary-darker p-4 min-h-[60px]
+        @apply rounded-t-md bg-primary-darker p-4 min-h-[60px];
+        border: none;
     }
 
     .gsection.accordion:not(.current) {
@@ -97,16 +98,8 @@
         @apply hidden
     }
 
-    .accordion .gsection_title::before {
-        content: '';
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='22' viewBox='0 0 20 22' fill='none'%3E%3Cpath d='M14.2903 5.92861C14.1128 8.32256 12.298 10.2755 10.3057 10.2755C8.31337 10.2755 6.49537 8.32302 6.32104 5.92861C6.13992 3.43821 7.90585 1.58173 10.3057 1.58173C12.7055 1.58173 14.4714 3.48349 14.2903 5.92861Z' stroke='%23AAC9E9' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M10.3057 13.1734C6.36632 13.1734 2.36809 15.3468 1.62822 19.4492C1.53766 19.9437 1.81885 20.4182 2.33685 20.4182H18.275C18.793 20.4182 19.0728 19.9437 18.9836 19.4492C18.2433 15.3468 14.245 13.1734 10.3057 13.1734Z' stroke='%23AAC9E9' stroke-width='2' stroke-miterlimit='10'/%3E%3C/svg%3E");
-        @apply h-[22px] w-[20px] bg-cover bg-center bg-no-repeat order-2 ml-auto;
-    }
-
-    .accordion .gsection_title::after {
-        content: '';
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M6 8L0.803847 0.5L11.1962 0.500001L6 8Z' fill='%23AAC9E9'/%3E%3C/svg%3E");
-        @apply h-[10px] w-[16px] bg-cover bg-center bg-no-repeat order-3 ml-[30px];
+    input[type="text"].ginput_total {
+        @apply bg-primary-dark rounded-md;
     }
 
     .gfield_error input, .gfield_error textarea, .gfield_error .gfield_select {
@@ -140,7 +133,24 @@
      .ginput_container_date input {
          width: 100% !important;
      }
+    .ginput_product_price, .ginput_shipping_price {
+        color: #fff !important;
+    }
+
+    .gsection {
+        border: none !important;
+    }
 }
 
 
+.accordion .gsection_title::before {
+    content: '';
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='22' viewBox='0 0 20 22' fill='none'%3E%3Cpath d='M14.2903 5.92861C14.1128 8.32256 12.298 10.2755 10.3057 10.2755C8.31337 10.2755 6.49537 8.32302 6.32104 5.92861C6.13992 3.43821 7.90585 1.58173 10.3057 1.58173C12.7055 1.58173 14.4714 3.48349 14.2903 5.92861Z' stroke='%23AAC9E9' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M10.3057 13.1734C6.36632 13.1734 2.36809 15.3468 1.62822 19.4492C1.53766 19.9437 1.81885 20.4182 2.33685 20.4182H18.275C18.793 20.4182 19.0728 19.9437 18.9836 19.4492C18.2433 15.3468 14.245 13.1734 10.3057 13.1734Z' stroke='%23AAC9E9' stroke-width='2' stroke-miterlimit='10'/%3E%3C/svg%3E");
+    @apply h-[22px] w-[20px] bg-cover bg-center bg-no-repeat order-2 ml-auto;
+}
 
+.accordion .gsection_title::after {
+    content: '';
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M6 8L0.803847 0.5L11.1962 0.500001L6 8Z' fill='%23AAC9E9'/%3E%3C/svg%3E");
+    @apply h-[10px] w-[16px] bg-cover bg-center bg-no-repeat order-3 ml-[30px];
+}

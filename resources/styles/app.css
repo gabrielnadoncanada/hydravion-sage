@@ -68,3 +68,8 @@ body {
 #ui-datepicker-div {
     display: none;
 }
+
+
+select {
+    -webkit-appearance: none;
+}

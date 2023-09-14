@@ -5,7 +5,6 @@
     });
 
 
-
     const hero = document.querySelector('body.home #hero-section');
     const sidebarForm = document.querySelector('.sidebar-form')
 
@@ -59,50 +58,52 @@
     }
 
 
-
-        // When some event happens, for example a button click:
-        $('#my-button').click(function() {
-            $.ajax({
-                type: 'POST',
-                url: ajaxurl, // This variable is automatically defined by WordPress for AJAX in the admin. For the frontend, you'll need to localize the script (see step 4).
-                data: {
-                    action: 'my_action', // This should match what you used in the wp_ajax_{action} and wp_ajax_nopriv_{action} hooks.
-                    // Other data you want to pass to the server...
-                },
-                success: function(response) {
-                    // Do something with the response...
-                    console.log(response);
-                },
-                error: function(error) {
-                    // Handle any errors here...
-                    console.log(error);
-                }
-            });
+    // When some event happens, for example a button click:
+    $('#my-button').click(function () {
+        $.ajax({
+            type: 'POST',
+            url: ajaxurl, // This variable is automatically defined by WordPress for AJAX in the admin. For the frontend, you'll need to localize the script (see step 4).
+            data: {
+                action: 'my_action', // This should match what you used in the wp_ajax_{action} and wp_ajax_nopriv_{action} hooks.
+                // Other data you want to pass to the server...
+            },
+            success: function (response) {
+                // Do something with the response...
+                console.log(response);
+            },
+            error: function (error) {
+                // Handle any errors here...
+                console.log(error);
+            }
         });
+    });
 
-    window.initSlider = function() {
+    window.initSlider = function () {
         let slides = document.querySelectorAll('.slider-carousel-container');
 
 
         slides.forEach(function (slide) {
-            new Swiper(`#${slide.id}`, {
+            let args = {
                 pagination: false,
                 navigation: false,
                 spaceBetween: 24,
-                // speed: 10000,
-                // loop: true,
-                // autoplay: {
-                //     delay: 0,
-                // },
                 slidesPerView: 'auto',
-            });
+            };
+            if (slide.id === 'front-page') {
+                args.autoplay = {
+                    delay: 0,
+                };
+
+                args.loop = true;
+                args.speed = 10000;
+            }
+            new Swiper(`#${slide.id}`, args);
+
         });
     }
 
 
     window.initSlider();
-
-
 
 
 })(jQuery));

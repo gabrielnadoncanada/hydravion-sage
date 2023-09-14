@@ -55,7 +55,7 @@
 
 
                 @if($leaflet_map)
-                    <x-leaflet-map ></x-leaflet-map>
+                    <x-leaflet-map show="{{is_single() ? 'true' : 'window.leafletmap'}}"></x-leaflet-map>
                 @endif
             </div>
         </div>

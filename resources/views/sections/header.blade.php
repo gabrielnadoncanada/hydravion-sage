@@ -1,5 +1,5 @@
 
-<header x-data="{ open: false }" class="fixed w-full z-20">
+<header x-data="{ open: false }" class="fixed w-full z-[99999]">
 	<nav class="relative px-6 py-4 flex justify-between items-center">
 		<a class="text-3xl font-bold leading-none" href="{{ get_current_language_code() == 'fr' ? '/' : '/en' }}">
 			@if(get_field('logo_light', 'option'))

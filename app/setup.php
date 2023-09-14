@@ -169,16 +169,4 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_script('masonry-grid', get_stylesheet_directory_uri() . '/resources/scripts/masonry.js', array('isotope-packery'), time(), true);
     wp_enqueue_script('swiper', get_stylesheet_directory_uri() . '/resources/scripts/swiper-bundle.js', array(), null, true);
     wp_enqueue_style('swiper', get_stylesheet_directory_uri() . '/resources/styles/swiper-bundle.css', array(), null);
-    $url = '/wp-content/plugins/acf-leaflet-field/assets/';
-    $version = time();
-    $leafletData = get_field('leaflet_map');
-    wp_enqueue_style('leaflet', 'https://unpkg.com/leaflet/dist/leaflet.css', array(), $version);
-    wp_enqueue_style('leaflet-rain', 'https://cdn.jsdelivr.net/gh/mwasil/Leaflet.Rainviewer/leaflet.rainviewer.css', array(), $version);
-    wp_enqueue_style('font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', array(), $version);
-    wp_enqueue_style('acf-leaflet-front', get_template_directory_uri() . '/resources/styles/leaflet.css', array(), $version);
-    wp_enqueue_script('acf-leaflet', "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js", array(), $version, true);
-    wp_enqueue_script('acf-rain', "https://cdn.jsdelivr.net/gh/mwasil/Leaflet.Rainviewer/leaflet.rainviewer.js", array(), $version, true);
-    wp_register_script('acf-leaflet-front', "{$url}js/leaflet-front.js", array(), $version, true);
-    wp_localize_script('acf-leaflet-front', 'leaflet_map_data', $leafletData);
-    wp_enqueue_script('acf-leaflet-front');
 });

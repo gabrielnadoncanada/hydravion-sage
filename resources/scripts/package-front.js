@@ -203,7 +203,7 @@
                     url: this.adminUrl, // This variable is automatically defined by WordPress for AJAX in the admin. For the frontend, you'll need to localize the script (see step 4).
                     data: {
                         item: selectedItem,
-                        action: 'my_action', // This should match what you used in the wp_ajax_{action} and wp_ajax_nopriv_{action} hooks.
+                        action: 'get_package', // This should match what you used in the wp_ajax_{action} and wp_ajax_nopriv_{action} hooks.
                         // Other data you want to pass to the server...
                     },
                     success: function(response) {

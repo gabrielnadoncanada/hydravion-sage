@@ -37,12 +37,19 @@ class Package
 		$this->add_actions();
 		$this->add_filters();
 		$this->add_shortcodes();
+        $this->add_ajax_actions();
 	}
 
     private function add_actions(): void
     {
 //		add_action('admin_enqueue_scripts', [$this, 'admin_enqueue_scripts']);
         add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
+    }
+
+    private function add_ajax_actions(): void
+    {
+        add_action('wp_ajax_get_package', [$this, 'render']);
+        add_action('wp_ajax_nopriv_get_package', [$this, 'render']);
     }
 
     private function add_filters(): void
@@ -311,9 +318,9 @@ class Package
 
     public function render()
     {
-//        return a blade template with sage theme wordpress
-
-
+        dump($_POST);
+        echo view('components.package', $_POST["item"])->render();
+        die();
     }
 }
 

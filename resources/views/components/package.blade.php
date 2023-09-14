@@ -17,7 +17,7 @@
         @endif
         <div class="max-w-[550px] z-[2]">
             <div class=" z-[2] mb-7 ">
-                <h1 class="text-5xl font-medium mb-5 leading-[1.1]">{{ $title }}</h1>
+                <h1 class="text-5xl font-medium mb-5 leading-[1.1]">{!! $title !!} </h1>
             </div>
 
             @if($duration || $length || $price)

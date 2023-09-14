@@ -171,11 +171,7 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('swiper', get_stylesheet_directory_uri() . '/resources/styles/swiper-bundle.css', array(), null);
     $url = '/wp-content/plugins/acf-leaflet-field/assets/';
     $version = time();
-
     $leafletData = get_field('leaflet_map');
-
-
-
     wp_enqueue_style('leaflet', 'https://unpkg.com/leaflet/dist/leaflet.css', array(), $version);
     wp_enqueue_style('leaflet-rain', 'https://cdn.jsdelivr.net/gh/mwasil/Leaflet.Rainviewer/leaflet.rainviewer.css', array(), $version);
     wp_enqueue_style('font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', array(), $version);
@@ -185,21 +181,4 @@ add_action('wp_enqueue_scripts', function () {
     wp_register_script('acf-leaflet-front', "{$url}js/leaflet-front.js", array(), $version, true);
     wp_localize_script('acf-leaflet-front', 'leaflet_map_data', $leafletData);
     wp_enqueue_script('acf-leaflet-front');
-});
-
-
-// For logged-in users
-add_action('wp_ajax_my_action', function () {
-
-
-
-
-    echo view('components.package', $_POST["item"])->render();
-    die();
-});
-
-// For non logged-in users
-add_action('wp_ajax_nopriv_my_action', function () {
-    echo view('components.package', $_POST["item"])->render();
-    die();
 });

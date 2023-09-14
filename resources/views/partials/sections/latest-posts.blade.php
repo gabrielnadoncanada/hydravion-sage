@@ -1,4 +1,4 @@
-<div class="bg-white">
+<div class="bg-white px-6">
     @php
 
         $myquery = new WP_Query(array(

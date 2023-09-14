@@ -101,4 +101,8 @@
 
 
     window.initSlider();
+
+
+
+
 })(jQuery));

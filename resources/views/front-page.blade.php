@@ -1,11 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="dynamic-post"></div>
+    <div id="dynamic-post "></div>
 
-    <div id="current-post"  x-init="setTimeout(() => { sidebarOpen = true; }, 2500);">
-        <div id="hero-section" class="h-screen px-6 py-12  pt-[120px] flex flex-col justify-start w-full overflow-hidden">
-            <div class="top overflow-hidden absolute left-0  pt-[120px] right-[10%] top-0  h-screen flex flex-col justify-start text-white py-12 z-[3] "
+    <div id="current-post" x-init="
+  if (window.matchMedia('(min-width: 1025px)').matches) {
+    setTimeout(() => { sidebarOpen = true; }, 2500);
+  }
+">
+        <div id="hero-section" class="min-h-screen px-6 py-12  pt-[120px] flex flex-col justify-start w-full overflow-hidden">
+            <div class="hidden top overflow-hidden absolute left-0  pt-[120px] right-[10%] top-0  h-screen lg:flex flex-col justify-start text-white py-12 z-[3] "
                 :class="sidebarOpen ? 'lg:left-[490px]' : ''">
                 <img src="{{ get_field('featured_image') }}" alt=""
                     class="z-[1] absolute top-0 h-screen object-cover w-full left-0" />
@@ -39,7 +43,10 @@
                     {!! get_field('featured_text') !!}
                 </div>
             @endif
-            <x-packages-slider id="front-page"></x-packages-slider>
+            <div class="pt-[200px]">
+                <x-packages-slider id="front-page"></x-packages-slider>
+            </div>
+
         </div>
         <div class="bg-white text-black">
             {{ the_content() }}

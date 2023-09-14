@@ -1,6 +1,12 @@
 <div @click="sidebarOpen = !sidebarOpen" id="sidebarform-toggle"
-	 class="cursor-pointer fixed top-[100px] right-0 z-[9999]">
+	 class="cursor-pointer fixed top-[100px] right-0 z-[9999] hidden lg:block">
 	<img decoding="async" width="50" src="{{ asset('images/sidebar-form.svg') }}" alt="">
+</div>
+
+<div @click="sidebarOpen = !sidebarOpen" id="sidebarform-toggle"
+     class="cursor-pointer fixed bottom-0 left-0 w-full z-[9999] bg-primary flex items-center justify-between gap-x-[30px] lg:hidden">
+    <span class="px-6 font-medium">RÉSERVATION</span>
+    <img decoding="async" width="50" src="{{ asset('images/sidebar-form-aside-icon.svg') }}" alt="">
 </div>
 <aside
 		x-show="sidebarOpen"

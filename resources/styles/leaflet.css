@@ -1,0 +1,65 @@
+#leaflet-container {
+    position: relative;
+}
+
+#leaflet-container .leaflet-modal:not(.show) {
+    display: none;
+}
+
+#leaflet-container .leaflet-modal {
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, .5);
+}
+
+#leaflet-container .leaflet-modal,
+#leaflet-container .leaflet-modal .leaflet-modal-content,
+#leaflet-container #image-gallery img {
+    width: 100%;
+}
+
+#leaflet-container .leaflet-modal .leaflet-modal-content {
+    background: white;
+    display: flex;
+
+}
+
+#leaflet-container,
+#leaflet-container .leaflet-modal,
+#leaflet-container .leaflet-modal .leaflet-modal-content,
+#leaflet-container .wp-block-custom-slider,
+#leaflet-container #image-gallery,
+#leaflet-container #image-gallery img {
+    height: 100%;
+}
+
+#leaflet-container #image-gallery img  {
+    object-fit: cover;
+    object-position: center;
+}
+
+#leaflet-container .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 9999;
+    width: 40px;
+    height: 40px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#leaflet-container .wp-block-custom-slider {
+    max-width: 70%;
+    margin-left: auto;
+}
+
+#leaflet-container .leaflet-modal-sidebar {
+    max-width: 30%;
+    padding: 1rem;
+}

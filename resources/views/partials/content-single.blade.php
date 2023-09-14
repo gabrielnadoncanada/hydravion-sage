@@ -1,19 +1,21 @@
-<article @php(post_class('h-entry'))>
-  <header>
-    <h1 class="p-name">
-      {!! $title !!}
-    </h1>
+<div id="current-post">
+	<div class="h-screen pt-[100px] px-6 pb-12 relative flex flex-col justify-end">
+		<img
+                src="<?= get_the_post_thumbnail_url() ?>"
+                class="z-[1] absolute top-0 h-screen object-cover w-full right-0"
+                alt=""
+        />
+		<div aria-hidden="true" class="absolute inset-0 z-[1] bg-gradient-b-to-t "></div>
 
-    @include('partials.entry-meta')
-  </header>
+		<div class="max-w-[550px] z-[2]">
+			<h1 class="text-5xl font-medium mb-7 leading-[1.1]"><?= get_the_title() ?></h1>
+		</div>
 
-  <div class="e-content">
-    @php(the_content())
-  </div>
 
-  <footer>
-    {!! wp_link_pages(['echo' => 0, 'before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']) !!}
-  </footer>
-
-  @php(comments_template())
-</article>
+	</div>
+	<div class="bg-white text-black">
+		<div class="max-w-[1536px] mx-auto px-6 py-20">
+			<?= the_content() ?>
+		</div>
+	</div>
+</div>

@@ -1,33 +1,11 @@
 <?php
 
-/*
- * Copyright (c) 2023 яαvoroηα
- *
- *  Permission is hereby granted, free of charge, to any person obtaining a copy of
- *  this software and associated documentation files (the "Software"), to deal in
- *  the Software without restriction, including without limitation the rights to
- *  use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
- *  the Software, and to permit persons to whom the Software is furnished to do so,
- *  subject to the following conditions:
- *
- *  The above copyright notice and this permission notice shall be included in all
- *  copies or substantial portions of the Software.
- *
- *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
- *  FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
- *  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
- *  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- *  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
 
 /**
  * Theme setup.
  */
 
 namespace App;
-
-use function Roots\bundle;
 
 /**
  * Register the theme assets.
@@ -38,43 +16,12 @@ add_action('wp_enqueue_scripts', function (): void {
     /**
      * Cleanup styles
      */
-    wp_dequeue_style('wp-block-library');
+//    wp_dequeue_style('wp-block-library');
     wp_dequeue_style('wp-block-library-theme');
 
-    $localized_object_name = 'sage';
-    $localized_vars = [
-        'primary' => __('Primary', 'sage')
-    ];
 
-    /**
-     * Enqueue theme stylesheets
-     */
-    if (hmr_enabled()) {
-        $asset = 'resources/scripts/main.ts';
-        $namespace = strtolower(wp_get_theme()->get('Name'));
-
-        wp_enqueue_script($namespace, hmr_assets($asset), array(), null, true);
-        wp_localize_script($namespace, $localized_object_name, $localized_vars);
-    } else {
-        bundle('main')->enqueue()->localize($localized_object_name, $localized_vars);
-    }
 }, 100);
 
-/**
- * Register the theme assets with the block editor.
- *
- * @return void
- */
-add_action('enqueue_block_editor_assets', function (): void {
-    if (hmr_enabled()) {
-        $asset = 'resources/scripts/editor.ts';
-        $namespace = strtolower(wp_get_theme()->get('Name'));
-
-        wp_enqueue_script($namespace, hmr_assets($asset), array(), null, true);
-    } else {
-        bundle('editor')->enqueue();
-    }
-}, 100);
 
 /**
  * Register the initial theme setup.
@@ -209,4 +156,49 @@ add_action('init', function () {
      * Cleanup media formats
      */
     reset_image_sizes();
+});
+
+
+add_action('wp_enqueue_scripts', function () {
+    wp_enqueue_script('magnetic', get_stylesheet_directory_uri() . '/resources/scripts/magnetic.js', array('jquery'), time(), true);
+    wp_enqueue_script('alpine', get_stylesheet_directory_uri() . '/resources/scripts/alpine.min.js', array(), time(), true);
+    wp_enqueue_script('gsap', get_stylesheet_directory_uri() . '/resources/scripts/gsap.min.js', array(), time(), true);
+    wp_enqueue_script('scripts', get_stylesheet_directory_uri() . '/resources/scripts/scripts.js', array('jquery', 'underscore', 'swiper'), time(), true);
+    wp_enqueue_script('isotope', get_stylesheet_directory_uri() . '/resources/scripts/isotope.pkgd.min.js', array(), time(), true);
+    wp_enqueue_script('isotope-packery', get_stylesheet_directory_uri() . '/resources/scripts/isotope-packery.js', array('isotope'), time(), true);
+    wp_enqueue_script('masonry-grid', get_stylesheet_directory_uri() . '/resources/scripts/masonry.js', array('isotope-packery'), time(), true);
+    wp_enqueue_script('swiper', get_stylesheet_directory_uri() . '/resources/scripts/swiper-bundle.js', array(), null, true);
+    wp_enqueue_style('swiper', get_stylesheet_directory_uri() . '/resources/styles/swiper-bundle.css', array(), null);
+    $url = '/wp-content/plugins/acf-leaflet-field/assets/';
+    $version = time();
+
+    $leafletData = get_field('leaflet_map');
+
+
+
+    wp_enqueue_style('leaflet', 'https://unpkg.com/leaflet/dist/leaflet.css', array(), $version);
+    wp_enqueue_style('leaflet-rain', 'https://cdn.jsdelivr.net/gh/mwasil/Leaflet.Rainviewer/leaflet.rainviewer.css', array(), $version);
+    wp_enqueue_style('font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', array(), $version);
+    wp_enqueue_style('acf-leaflet-front', get_template_directory_uri() . '/resources/styles/leaflet.css', array(), $version);
+    wp_enqueue_script('acf-leaflet', "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js", array(), $version, true);
+    wp_enqueue_script('acf-rain', "https://cdn.jsdelivr.net/gh/mwasil/Leaflet.Rainviewer/leaflet.rainviewer.js", array(), $version, true);
+    wp_register_script('acf-leaflet-front', "{$url}js/leaflet-front.js", array(), $version, true);
+    wp_localize_script('acf-leaflet-front', 'leaflet_map_data', $leafletData);
+    wp_enqueue_script('acf-leaflet-front');
+});
+
+
+// For logged-in users
+add_action('wp_ajax_my_action', function () {
+
+
+
+
+    echo view('components.package', $_POST["item"])->render();
+    die();
+});
+
+// For non logged-in users
+add_action('wp_ajax_nopriv_my_action', function () {
+    dd('gay');
 });

@@ -76,7 +76,7 @@ bootloader()->boot();
 |
 */
 
-collect(['setup', 'filters', 'helpers', 'medias'])
+collect(['setup', 'filters', 'helpers', 'medias', 'Package', 'inc.vite'])
     ->each(function ($file) {
         if (!locate_template($file = "app/{$file}.php", true, true)) {
             wp_die(
@@ -85,3 +85,88 @@ collect(['setup', 'filters', 'helpers', 'medias'])
             );
         }
     });
+
+
+function get_current_language_code()
+{
+    if (defined('ICL_LANGUAGE_CODE')) {
+        $current_language = ICL_LANGUAGE_CODE;
+    } else {
+        $current_language = 'fr';
+    }
+
+    return $current_language;
+}
+
+
+function get_default_image_placeholder()
+{
+    return wp_get_attachment_url(get_option('theme_utilities_img_placeholder')) ?? get_stylesheet_directory_uri() . '/assets/img/placeholder.jpg';
+}
+
+function get_featured_video($post_id = null)
+{
+    if (!$post_id) {
+        $post_id = get_the_ID();
+    }
+
+    $video = get_field('featured_video', $post_id);
+
+    if ($video) {
+
+        return get_template_part('template-parts/parts/featured-video', null, [
+            'video_id' => $video
+        ]);
+    }
+    return false;
+}
+
+function add_upload_mimes($mimes)
+{
+    $mimes['kml'] = 'text/xml';
+    $mimes['kmz'] = 'application/zip';
+    return $mimes;
+}
+
+add_filter('upload_mimes', 'add_upload_mimes');
+
+
+add_filter('query_vars', 'custom_query_vars');
+//add_filter('term_link', 'remove_taxonomy_slug_from_archive', 10, 3);
+add_action('init', 'custom_rewrite_rules', 11);
+
+function custom_query_vars($vars)
+{
+    $vars[] = 'package_region_term';
+    return $vars;
+}
+
+function remove_taxonomy_slug_from_archive($link, $term, $taxonomy)
+{
+    $custom_taxonomies = array('package_region', 'package_type', 'package_group');
+    if (in_array($taxonomy, $custom_taxonomies)) {
+        return home_url('/') . $term->slug;
+    }
+    return $link;
+}
+
+function custom_rewrite_rules()
+{
+    global $wp_rewrite;
+    $region_terms = get_terms(array(
+        'taxonomy' => 'package_region',
+        'hide_empty' => false,
+    ));
+
+    if ($region_terms && !is_wp_error($region_terms)) {
+        foreach ($region_terms as $term) {
+            $slug = $term->slug;
+            add_rewrite_rule("^$slug/survols/([^/]+)/?$", 'index.php?package_group=$matches[1]&package_region_term=' . $slug, 'top');
+            add_rewrite_rule("^$slug/([^/]+)/?$", 'index.php?package_type=$matches[1]&package_region_term=' . $slug, 'top');
+            add_rewrite_rule("^$slug/?$", 'index.php?package_region=' . $slug, 'top');
+        }
+    }
+}
+
+
+

@@ -4,14 +4,13 @@
 
 @include('sections.header')
 
-  <main id="main" class="main">
-    @yield('content')
-  </main>
+<main class="relative flex-grow transition-[padding-left] ease-in-out duration-300  bg-primary flex flex-col text-white  min-h-screen"
+	  :class="sidebarOpen ? 'lg:pl-[490px]' : ''">
+      @yield('content')
 
-  @hasSection('sidebar')
-    <aside class="sidebar">
-      @yield('sidebar')
-    </aside>
-  @endif
+
+	@include('sections.sidebar')
+</main>
+
 
 @include('sections.footer')

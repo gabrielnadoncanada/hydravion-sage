@@ -318,7 +318,7 @@ class Package
 
     public function render()
     {
-        dump($_POST);
+       
         echo view('components.package', $_POST["item"])->render();
         die();
     }

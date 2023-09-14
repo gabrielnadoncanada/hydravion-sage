@@ -70,7 +70,10 @@ body {
 }
 
 
-select {
-    -webkit-appearance: none;
-    line-height: 300px !important;
+.gform_wrapper * {
+    box-sizing: border-box;
+}
+
+.gform_wrapper .gfield {
+    min-width: 0;
 }

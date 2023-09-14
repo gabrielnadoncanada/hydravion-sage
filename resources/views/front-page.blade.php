@@ -8,8 +8,8 @@
     setTimeout(() => { sidebarOpen = true; }, 2500);
   }
 ">
-        <div id="hero-section" class="min-h-screen px-6 py-12  pt-[120px] flex flex-col justify-start w-full overflow-hidden">
-            <div class="hidden top overflow-hidden absolute left-0  pt-[120px] right-[10%] top-0  h-screen lg:flex flex-col justify-start text-white py-12 z-[3] "
+        <div id="hero-section" class="gap-y-8 min-h-screen px-6 py-12  pt-28 flex flex-col justify-start w-full overflow-hidden">
+            <div class="hidden top overflow-hidden absolute left-0  pt-28 right-[10%] top-0  h-screen lg:flex flex-col justify-start text-white py-12 z-[3] "
                 :class="sidebarOpen ? 'lg:left-[490px]' : ''">
                 <img src="{{ get_field('featured_image') }}" alt=""
                     class="z-[1] absolute top-0 h-screen object-cover w-full left-0" />
@@ -22,6 +22,7 @@
 
 
             <x-video
+                class="hidden lg:block"
                 src="https://player.vimeo.com/video/830266264?h=db57139e05&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;background=1&amp;muted=1"
                 allow="autoplay; fullscreen; picture-in-picture"
                 allowfullscreen=""
@@ -39,11 +40,11 @@
 {{--            </div>--}}
 
             @if (get_field('featured_text'))
-                <div class="max-w-[450px] z-[2] text-white ">
+                <div class="max-w-md z-[2] text-white ">
                     {!! get_field('featured_text') !!}
                 </div>
             @endif
-            <div class="pt-[200px]">
+            <div class="pt-48">
                 <x-packages-slider id="front-page"></x-packages-slider>
             </div>
 

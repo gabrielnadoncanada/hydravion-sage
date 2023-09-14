@@ -8,7 +8,7 @@
 
 </script>
 <div
-    class="slider-carousel-container  z-[4] swiper swiper-container-free-mode absolute  bottom-[3rem] right-[1.5rem] lg:right-0 lg:left-0 left-[1.5rem] max-h-[205px]"
+    class="slider-carousel-container  z-[4] swiper swiper-container-free-mode absolute  bottom-[3rem] right-0 left-0 max-h-[205px]"
     id="{{$id}}">
     <div class="swiper-wrapper" style="transition-timing-function : linear;">
         @foreach ($packages as $package)

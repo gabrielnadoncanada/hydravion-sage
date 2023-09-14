@@ -39,13 +39,16 @@
         --min-font-size: 14;
         --line-height-px: 18;
     }
-    /*h3,*/
-    /*.h3 {*/
-    /*    --font-size: 48;*/
-    /*    --min-font-size: 34;*/
-    /*    --line-height-px: 48;*/
-    /*}*/
+    h3,
+    .h3 {
+        --font-size: 30;
+        --min-font-size: 25;
+        --line-height-px: 30;
+    }
 
+    :where(h3 + h4) {
+        margin-top: 1.5rem;
+    }
     /*h4,*/
     /*.h4 {*/
     /*    --font-size: 36;*/
@@ -65,4 +68,8 @@
     /*    --min-font-size: 16;*/
     /*    --line-height-px: 32;*/
     /*}*/
+
+    p + p {
+        margin-top: 1.5rem;
+    }
 }

@@ -43,7 +43,7 @@
 		</div>
 		<div>
 		{{ wp_nav_menu([
-			'theme_location' => 'header-menu',
+			'theme_location' => 'mobile_navigation',
 			'container' => 'ul',
 			'menu_id' => 'mobile-menu',
 			'menu_class' => '',

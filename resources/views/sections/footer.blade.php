@@ -14,7 +14,7 @@
 		@endif
 		<div class="flex gap-x-12 gap-y-4 flex-col md:flex-row justify-lg-between">
 				{{ wp_nav_menu([
-					'theme_location' => 'footer-menu',
+					'theme_location' => 'footer_navigation',
 					'container' => 'ul',
 					'menu_id' => 'footer-menu',
 					'menu_class' => 'text-white  leading-loose px-lg-10 mr-auto',
@@ -76,7 +76,7 @@
 	 x-transition:leave-start="-translate-y-0"
 	 x-transition:leave-end="translate-y-full"
 
-	 class="z-30 fixed top-0 left-0 w-full h-screen flex items-center justify-center"
+	 class="z-[99999] fixed top-0 left-0 w-full h-screen flex items-center justify-center"
 	 style="transition: all; transition-duration: 750ms; transition-timing-function: cubic-bezier(0.5, 0.1, 0.1, 1) !important"
 >
 	<a href="#" class="fixed right-0 top-0 z-10 p-6">

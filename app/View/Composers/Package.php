@@ -91,7 +91,10 @@ class Package extends Composer
         $image = get_field('featured_image', $obj);
 
         if (!$image) {
-            $image = get_the_post_thumbnail_url();
+            if(is_single()){
+                $image = get_the_post_thumbnail_url();
+            }
+
 
             if (!$image) {
                 $image = get_default_image_placeholder();
@@ -100,7 +103,6 @@ class Package extends Composer
 
         return $image;
     }
-
 
     public function get_slides()
     {
@@ -118,13 +120,13 @@ class Package extends Composer
                         'parent' => 0
                     ]);
 
-                    foreach ($taxonomies as $key => $term){
+                    foreach ($taxonomies as $key => $term) {
                         $slides[$key]['title'] = $term->name;
                         $slides[$key]['permalink'] = $term->slug;
 
                         $featured_image = get_field('featured_image', $term);
 
-                        if(!$featured_image || $featured_image == '') {
+                        if (!$featured_image || $featured_image == '') {
                             $slides[$key]['featured_image'] = get_default_image_placeholder();
                         } else {
                             $slides[$key]['featured_image'] = $featured_image;
@@ -148,13 +150,13 @@ class Package extends Composer
                                 [
                                     'taxonomy' => 'package_region',
                                     'field' => 'term_id',
-                                    'terms' => get_term_by('slug', get_query_var( 'package_region_term'), 'package_region')->term_id
+                                    'terms' => get_term_by('slug', get_query_var('package_region_term'), 'package_region')->term_id
                                 ]
                             ]
                         ]);
 
 
-                        foreach ($wp_query->get_posts() as  $post) {
+                        foreach ($wp_query->get_posts() as $post) {
                             $slides[] = [
                                 'title' => $post->post_title,
                                 'content' => $post->post_content,
@@ -169,13 +171,13 @@ class Package extends Composer
                             'parent' => 0
                         ]);
 
-                        foreach ($taxonomies as $key => $term){
+                        foreach ($taxonomies as $key => $term) {
                             $slides[$key]['title'] = $term->name;
                             $slides[$key]['permalink'] = $term->slug;
 
                             $featured_image = get_field('featured_image', $term);
 
-                            if(!$featured_image || $featured_image == '') {
+                            if (!$featured_image || $featured_image == '') {
                                 $slides[$key]['featured_image'] = get_default_image_placeholder();
                             } else {
                                 $slides[$key]['featured_image'] = $featured_image;
@@ -186,7 +188,7 @@ class Package extends Composer
 
                 break;
             case 'package_group':
-                foreach ($wp_query->get_posts() as  $post) {
+                foreach ($wp_query->get_posts() as $post) {
                     $slides[] = [
                         'title' => $post->post_title,
                         'content' => $post->post_content,
@@ -198,8 +200,4 @@ class Package extends Composer
         }
         return $slides;
     }
-
-
-
-
 }

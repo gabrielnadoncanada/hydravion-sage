@@ -196,7 +196,6 @@
                 }
 
                 let html = '';
-
                 $.ajax({
                     type: 'POST',
                     url: this.adminUrl, // This variable is automatically defined by WordPress for AJAX in the admin. For the frontend, you'll need to localize the script (see step 4).

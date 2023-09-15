@@ -17,28 +17,28 @@ class Package
     public function __construct()
     {
 
-		$this->taxonomies = [
-			'package_region' => [
-				'label' => __('Région'),
-				'slug' => 'region',
-			],
-			'package_type' => [
-				'label' => __('Aventure'),
-				'slug' => 'aventure',
-			],
-			'package_group' => [
-				'label' => __('Type'),
-				'slug' => 'type',
-			],
-		];
+        $this->taxonomies = [
+            'package_region' => [
+                'label' => __('Région'),
+                'slug' => 'region',
+            ],
+            'package_type' => [
+                'label' => __('Aventure'),
+                'slug' => 'aventure',
+            ],
+            'package_group' => [
+                'label' => __('Type'),
+                'slug' => 'type',
+            ],
+        ];
 
-		add_action('init', [$this, 'init'], 999);
+        add_action('init', [$this, 'init'], 999);
 
-		$this->add_actions();
-		$this->add_filters();
-		$this->add_shortcodes();
+        $this->add_actions();
+        $this->add_filters();
+        $this->add_shortcodes();
         $this->add_ajax_actions();
-	}
+    }
 
     private function add_actions(): void
     {
@@ -55,9 +55,9 @@ class Package
     {
         add_filter('gform_pre_render', [$this, 'populate_choices']);
 
-		add_filter('gform_pre_validation', [$this, 'populate_choices']);
-		add_filter('gform_pre_submission_filter', [$this, 'populate_choices']);
-		add_filter('gform_admin_pre_render', [$this, 'populate_choices']);
+        add_filter('gform_pre_validation', [$this, 'populate_choices']);
+        add_filter('gform_pre_submission_filter', [$this, 'populate_choices']);
+        add_filter('gform_admin_pre_render', [$this, 'populate_choices']);
     }
 
     private function add_shortcodes(): void
@@ -140,7 +140,7 @@ class Package
                 $posts[$post_id] = [
                     'title' => get_the_title(),
                     'content' => get_the_content() ?: '',
-                    'excerpt' => get_the_excerpt() ?: '',
+                    'description' => get_the_excerpt() ?: '',
                     'permalink' => get_the_permalink(),
                     'featured_image' => $image,
                     'video' => get_field('featured_video') ?: $image,
@@ -190,7 +190,8 @@ class Package
                     'id' => $term->term_id,
                     'title' => $term->name,
                     'permalink' => $term->slug,
-                    'content' => $term->description ?: '',
+                    'description' => $term->description ?: '',
+                    'content' => '',
                     'featured_image' => $image,
                     'video' => get_field('featured_video', $term) ?? '',
                     'duration' => get_field('duree', $term) ?: '',
@@ -200,7 +201,6 @@ class Package
                 ];
             }
         }
-
 
         return $taxonomiesTerms;
     }
@@ -299,6 +299,8 @@ class Package
 
     public function render()
     {
+        $_POST["item"]["description"] = stripslashes($_POST["item"]["description"]);
+        $_POST["item"]["content"] = stripslashes($_POST["item"]["content"]);
 
         echo view('components.package', $_POST["item"])->render();
         die();

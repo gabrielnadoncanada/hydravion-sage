@@ -1,5 +1,4 @@
 <div>
-
     <div class="min-h-screen pt-[100px] px-6 pb-12 relative  flex flex-col justify-end">
         <img
             src="{{ $featured_image }}"

@@ -94,7 +94,7 @@ class Package extends Composer
             $image = get_the_post_thumbnail_url();
 
             if (!$image) {
-                $image = $this->get_default_image_placeholder();
+                $image = get_default_image_placeholder();
             }
         }
 
@@ -125,7 +125,7 @@ class Package extends Composer
                         $featured_image = get_field('featured_image', $term);
 
                         if(!$featured_image || $featured_image == '') {
-                            $slides[$key]['featured_image'] = $this->get_default_image_placeholder();
+                            $slides[$key]['featured_image'] = get_default_image_placeholder();
                         } else {
                             $slides[$key]['featured_image'] = $featured_image;
                         }
@@ -135,6 +135,25 @@ class Package extends Composer
             case 'package_type':
                 if ($obj->term_id != 35) {
                     if ($obj->term_id == 24) {
+
+                        $wp_query = new WP_Query([
+                            'post_type' => 'package',
+                            'posts_per_page' => -1,
+                            'tax_query' => [
+                                [
+                                    'taxonomy' => 'package_type',
+                                    'field' => 'term_id',
+                                    'terms' => $obj->term_id
+                                ],
+                                [
+                                    'taxonomy' => 'package_region',
+                                    'field' => 'term_id',
+                                    'terms' => get_term_by('slug', get_query_var( 'package_region_term'), 'package_region')->term_id
+                                ]
+                            ]
+                        ]);
+
+
                         foreach ($wp_query->get_posts() as  $post) {
                             $slides[] = [
                                 'title' => $post->post_title,
@@ -157,7 +176,7 @@ class Package extends Composer
                             $featured_image = get_field('featured_image', $term);
 
                             if(!$featured_image || $featured_image == '') {
-                                $slides[$key]['featured_image'] = $this->get_default_image_placeholder();
+                                $slides[$key]['featured_image'] = get_default_image_placeholder();
                             } else {
                                 $slides[$key]['featured_image'] = $featured_image;
                             }
@@ -182,8 +201,5 @@ class Package extends Composer
 
 
 
-    public function get_default_image_placeholder()
-    {
-        return wp_get_attachment_url(get_option('theme_utilities_img_placeholder')) ?? get_stylesheet_directory_uri() . '/assets/img/placeholder.jpg';
-    }
+
 }

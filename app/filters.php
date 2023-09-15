@@ -1,25 +1,5 @@
 <?php
 
-/*
- * Copyright (c) 2023 яαvoroηα
- *
- *  Permission is hereby granted, free of charge, to any person obtaining a copy of
- *  this software and associated documentation files (the "Software"), to deal in
- *  the Software without restriction, including without limitation the rights to
- *  use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
- *  the Software, and to permit persons to whom the Software is furnished to do so,
- *  subject to the following conditions:
- *
- *  The above copyright notice and this permission notice shall be included in all
- *  copies or substantial portions of the Software.
- *
- *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
- *  FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
- *  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
- *  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- *  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
 
 /**
  * Theme filters.
@@ -75,8 +55,12 @@ add_filter('term_link', function ($link, $term, $taxonomy) {
 }, 10, 3);
 
 
-
 add_filter('gform_field_value_package_group', function ($value) {
+
+    if (is_single() && get_post_type() == 'package') {
+        return get_the_terms(get_the_ID(), 'package_group')[0]->term_id;
+    }
+
     $term_slug = isset($_GET['package_group']) ? sanitize_text_field($_GET['package_group']) : '';
 
     if (!empty($term_slug)) {
@@ -90,6 +74,10 @@ add_filter('gform_field_value_package_group', function ($value) {
 
 
 add_filter('gform_field_value_package_region', function ($value) {
+    if (is_single() && get_post_type() == 'package') {
+        return get_the_terms(get_the_ID(), 'package_region')[0]->term_id;
+    }
+
     $term_slug = isset($_GET['package_region']) ? sanitize_text_field($_GET['package_region']) : '';
 
     if (!empty($term_slug)) {
@@ -103,6 +91,10 @@ add_filter('gform_field_value_package_region', function ($value) {
 
 
 add_filter('gform_field_value_package_type', function ($value) {
+    if (is_single() && get_post_type() == 'package') {
+        return get_the_terms(get_the_ID(), 'package_type')[0]->term_id;
+    }
+
     $term_slug = isset($_GET['package_type']) ? sanitize_text_field($_GET['package_type']) : '';
 
     if (!empty($term_slug)) {
@@ -113,6 +105,13 @@ add_filter('gform_field_value_package_type', function ($value) {
     }
     return $value;
 });
+
+add_filter('gform_field_value_package', function ($value) {
+    if (is_single() && get_post_type() == 'package') {
+        return get_the_ID();
+    }
+});
+
 
 add_filter('mce_external_plugins', function ($plugins) {
     $plugins['table'] = get_template_directory_uri() . '/resources/scripts/tinymce-table-plugin.min.js';

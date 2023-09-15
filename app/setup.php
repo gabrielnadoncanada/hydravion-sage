@@ -183,11 +183,23 @@ add_action('init', function () {
     if ($region_terms && !is_wp_error($region_terms)) {
         foreach ($region_terms as $term) {
             $slug = $term->slug;
-            add_rewrite_rule("^$slug/survols/([^/]+)/?$", 'index.php?package_group=$matches[1]&package_region_term=' . $slug, 'top');
-            add_rewrite_rule("^$slug/([^/]+)/?$", 'index.php?package_type=$matches[1]&package_region_term=' . $slug, 'top');
+            add_rewrite_rule("^$slug/survols/([^/]+)/?$", 'index.php?package_group=$matches[1]&package_region=' . $slug, 'top');
+            add_rewrite_rule("^$slug/([^/]+)/?$", 'index.php?package_type=$matches[1]&package_region=' . $slug, 'top');
             add_rewrite_rule("^$slug/?$", 'index.php?package_region=' . $slug, 'top');
         }
     }
 }, 11);
 
 
+
+
+//// Hook my above function to the pre_get_posts action
+//add_action( 'pre_get_posts', function ( $query ) {
+//
+//    if ($query->is_main_query() ) { // Run only on the homepage
+//        dd( $query);
+//        $query->query_vars['cat'] = -2; // Exclude my featured category because I display that elsewhere
+//        $query->query_vars['posts_per_page'] = 5; // Show only 5 posts on the homepage only
+//    }
+//});
+//

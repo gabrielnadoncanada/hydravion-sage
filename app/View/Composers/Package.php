@@ -30,7 +30,7 @@ class Package extends Composer
             'length' => $this->get_length(),
             'price' => $this->get_price(),
             'content' => is_archive() ? false : get_the_content(),
-            'video' =>$this->get_video(),
+            'video' => $this->get_video(),
             'slides' => is_single() ? [] : $this->get_slides(),
             'leaflet_map' => is_archive() ? false : get_field('leaflet_map'),
         ];
@@ -94,7 +94,7 @@ class Package extends Composer
             $image = get_the_post_thumbnail_url();
 
             if (!$image) {
-                $image = get_default_image_placeholder();
+                $image = $this->get_default_image_placeholder();
             }
         }
 
@@ -104,19 +104,86 @@ class Package extends Composer
 
     public function get_slides()
     {
-        $slides = [];
         global $wp_query;
+        $slides = [];
 
-        foreach ($wp_query->get_posts() as $key => $post){
-            $slides[] = [
-                'title' => $post->post_title,
-                'content' => $post->post_content,
-                'featured_image' => get_the_post_thumbnail_url($post->ID),
-                'permalink' => get_permalink($post->ID),
-            ];
+        $obj = get_queried_object();
+
+        switch ($obj->taxonomy) {
+            case 'package_region':
+                if ($obj->term_id != 21) {
+                    $taxonomies = get_terms([
+                        'taxonomy' => 'package_type',
+                        'hide_empty' => false,
+                        'parent' => 0
+                    ]);
+
+                    foreach ($taxonomies as $key => $term){
+                        $slides[$key]['title'] = $term->name;
+                        $slides[$key]['permalink'] = $term->slug;
+
+                        $featured_image = get_field('featured_image', $term);
+
+                        if(!$featured_image || $featured_image == '') {
+                            $slides[$key]['featured_image'] = $this->get_default_image_placeholder();
+                        } else {
+                            $slides[$key]['featured_image'] = $featured_image;
+                        }
+                    }
+                }
+                break;
+            case 'package_type':
+                if ($obj->term_id != 35) {
+                    if ($obj->term_id == 24) {
+                        foreach ($wp_query->get_posts() as  $post) {
+                            $slides[] = [
+                                'title' => $post->post_title,
+                                'content' => $post->post_content,
+                                'featured_image' => get_the_post_thumbnail_url($post->ID),
+                                'permalink' => get_permalink($post->ID),
+                            ];
+                        }
+                    } else {
+                        $taxonomies = get_terms([
+                            'taxonomy' => 'package_group',
+                            'hide_empty' => false,
+                            'parent' => 0
+                        ]);
+
+                        foreach ($taxonomies as $key => $term){
+                            $slides[$key]['title'] = $term->name;
+                            $slides[$key]['permalink'] = $term->slug;
+
+                            $featured_image = get_field('featured_image', $term);
+
+                            if(!$featured_image || $featured_image == '') {
+                                $slides[$key]['featured_image'] = $this->get_default_image_placeholder();
+                            } else {
+                                $slides[$key]['featured_image'] = $featured_image;
+                            }
+                        }
+                    }
+                }
+
+                break;
+            case 'package_group':
+                foreach ($wp_query->get_posts() as  $post) {
+                    $slides[] = [
+                        'title' => $post->post_title,
+                        'content' => $post->post_content,
+                        'featured_image' => get_the_post_thumbnail_url($post->ID),
+                        'permalink' => get_permalink($post->ID),
+                    ];
+                }
+                break;
         }
-
         return $slides;
+    }
 
+
+
+    public function get_default_image_placeholder()
+    {
+        return wp_get_attachment_url(get_option('theme_utilities_img_placeholder')) ?? get_stylesheet_directory_uri() . '/assets/img/placeholder.jpg';
     }
 }

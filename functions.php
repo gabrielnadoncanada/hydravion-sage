@@ -99,10 +99,7 @@ function get_current_language_code()
 }
 
 
-function get_default_image_placeholder()
-{
-    return wp_get_attachment_url(get_option('theme_utilities_img_placeholder')) ?? get_stylesheet_directory_uri() . '/assets/img/placeholder.jpg';
-}
+
 
 function get_featured_video($post_id = null)
 {

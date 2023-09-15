@@ -113,3 +113,13 @@ add_filter('gform_field_value_package_type', function ($value) {
     }
     return $value;
 });
+
+add_filter('mce_external_plugins', function ($plugins) {
+    $plugins['table'] = get_template_directory_uri() . '/resources/scripts/tinymce-table-plugin.min.js';
+    return $plugins;
+});
+
+add_filter('mce_buttons', function ($buttons) {
+    array_push($buttons, 'table');
+    return $buttons;
+});

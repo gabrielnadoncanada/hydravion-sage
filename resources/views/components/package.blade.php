@@ -8,14 +8,14 @@
         />
         <div aria-hidden="true" class="absolute inset-0 z-[1] bg-gradient-b-to-t "></div>
         @if($video)
-            <div class="vimeo-wrapper">
+            <div class="video-wrapper z-[1]">
                 <iframe
-                    src="https://player.vimeo.com/video/830266264?h=db57139e05&badge=0&autopause=0&player_id=0&background=1&muted=1"
+                    src="https://player.vimeo.com/video/{{$video}}?h=db57139e05&badge=0&autopause=0&player_id=0&background=1&muted=1"
                     frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
                 <br/>
             </div>
         @endif
-        <div class="max-w-[550px] z-[2]">
+        <div class="max-w-[490px] z-[2]">
             <div class=" z-[2] mb-7 ">
                 <h1 class="text-5xl font-medium mb-5 leading-[1.1]">{!! $title !!} </h1>
             </div>
@@ -48,7 +48,7 @@
         </div>
     </div>
 
-    <div class="bg-white text-black">
+    <div class="bg-white text-black ">
         <div class="max-w-[1536px] mx-auto px-6 py-10 lg:py-20">
 
             {{$slot}}
@@ -56,11 +56,11 @@
                 {!! $content !!}
 
 
-                @if($leaflet_map)
-                    <x-leaflet-map show="{{is_single() ? 'true' : 'window.leafletmap'}}"></x-leaflet-map>
-                @endif
+
             </div>
         </div>
-
+        @if($leaflet_map)
+            <x-leaflet-map show="{{is_single() ? 'true' : 'window.leafletmap'}}"></x-leaflet-map>
+        @endif
     </div>
 </div>

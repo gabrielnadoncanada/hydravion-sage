@@ -3,10 +3,7 @@
     "id" => "packages-slider"
 ])
 
-<script>
 
-
-</script>
 <div
     class="slider-carousel-container  z-[4] swiper swiper-container-free-mode absolute  bottom-[3rem] right-0 left-0 max-h-[205px]"
     id="{{$id}}">

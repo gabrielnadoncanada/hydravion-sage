@@ -172,3 +172,22 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_script('swiper', get_stylesheet_directory_uri() . '/resources/scripts/swiper-bundle.js', array(), null, true);
     wp_enqueue_style('swiper', get_stylesheet_directory_uri() . '/resources/styles/swiper-bundle.css', array(), null);
 });
+
+add_action('init', function () {
+    global $wp_rewrite;
+    $region_terms = get_terms(array(
+        'taxonomy' => 'package_region',
+        'hide_empty' => false,
+    ));
+
+    if ($region_terms && !is_wp_error($region_terms)) {
+        foreach ($region_terms as $term) {
+            $slug = $term->slug;
+            add_rewrite_rule("^$slug/survols/([^/]+)/?$", 'index.php?package_group=$matches[1]&package_region_term=' . $slug, 'top');
+            add_rewrite_rule("^$slug/([^/]+)/?$", 'index.php?package_type=$matches[1]&package_region_term=' . $slug, 'top');
+            add_rewrite_rule("^$slug/?$", 'index.php?package_region=' . $slug, 'top');
+        }
+    }
+}, 11);
+
+

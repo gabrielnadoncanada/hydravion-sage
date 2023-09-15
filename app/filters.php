@@ -52,3 +52,64 @@ add_filter('script_loader_tag', function ($tag, $handle, $src): string {
 
     return $tag;
 }, 10, 3);
+
+
+add_filter('upload_mimes', function ($mimes) {
+    $mimes['kml'] = 'text/xml';
+    $mimes['kmz'] = 'application/zip';
+    return $mimes;
+});
+
+
+add_filter('query_vars', function ($vars) {
+    $vars[] = 'package_region_term';
+    return $vars;
+});
+
+add_filter('term_link', function ($link, $term, $taxonomy) {
+    $custom_taxonomies = array('package_region', 'package_type', 'package_group');
+    if (in_array($taxonomy, $custom_taxonomies)) {
+        return home_url('/') . $term->slug;
+    }
+    return $link;
+}, 10, 3);
+
+
+
+add_filter('gform_field_value_package_group', function ($value) {
+    $term_slug = isset($_GET['package_group']) ? sanitize_text_field($_GET['package_group']) : '';
+
+    if (!empty($term_slug)) {
+        $term = get_term_by('slug', $term_slug, 'package_group');
+        if ($term && !is_wp_error($term)) {
+            return $term->term_id;
+        }
+    }
+    return $value;
+});
+
+
+add_filter('gform_field_value_package_region', function ($value) {
+    $term_slug = isset($_GET['package_region']) ? sanitize_text_field($_GET['package_region']) : '';
+
+    if (!empty($term_slug)) {
+        $term = get_term_by('slug', $term_slug, 'package_region');
+        if ($term && !is_wp_error($term)) {
+            return $term->term_id;
+        }
+    }
+    return $value;
+});
+
+
+add_filter('gform_field_value_package_type', function ($value) {
+    $term_slug = isset($_GET['package_type']) ? sanitize_text_field($_GET['package_type']) : '';
+
+    if (!empty($term_slug)) {
+        $term = get_term_by('slug', $term_slug, 'package_type');
+        if ($term && !is_wp_error($term)) {
+            return $term->term_id;
+        }
+    }
+    return $value;
+});

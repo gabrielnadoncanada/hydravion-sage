@@ -39,7 +39,7 @@
                     @endif
                 </ul>
             @endif
-            <p>{{ $excerpt }}</p>
+            {!! $description !!}
         </div>
         <div class="relative px-6 -bottom-[3rem] {{ $slides && count($slides) ? 'pb-[250px]' : 'pb-[75px]' }}">
             @if($slides && count($slides))
@@ -50,6 +50,8 @@
 
     <div class="bg-white text-black">
         <div class="max-w-[1536px] mx-auto px-6 py-10 lg:py-20">
+
+            {{$slot}}
             <div class="content typography">
                 {!! $content !!}
 

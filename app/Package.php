@@ -42,7 +42,6 @@ class Package
 
     private function add_actions(): void
     {
-//		add_action('admin_enqueue_scripts', [$this, 'admin_enqueue_scripts']);
         add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
     }
 
@@ -56,9 +55,9 @@ class Package
     {
         add_filter('gform_pre_render', [$this, 'populate_choices']);
 
-//		add_filter('gform_pre_validation', [$this, 'populate_choices']);
-//		add_filter('gform_pre_submission_filter', [$this, 'populate_choices']);
-//		add_filter('gform_admin_pre_render', [$this, 'populate_choices']);
+		add_filter('gform_pre_validation', [$this, 'populate_choices']);
+		add_filter('gform_pre_submission_filter', [$this, 'populate_choices']);
+		add_filter('gform_admin_pre_render', [$this, 'populate_choices']);
     }
 
     private function add_shortcodes(): void
@@ -233,9 +232,8 @@ class Package
         $terms = $this->taxonomies_terms[$taxonomy]['terms'];
 
         $choices = [];
-
         foreach ($terms as $term) {
-            $choices[] = ['text' => $term['text'], 'value' => $term['id'], 'isSelected' => false];
+            $choices[] = ['text' => $term['title'], 'value' => $term['id'], 'isSelected' => false];
         }
 
         return $choices;
@@ -274,36 +272,19 @@ class Package
             });
             $values['package_group'] = array_values($selected_group)[0]['id'];
         }
-
-//		} elseif (is_front_page()) {
-//
-////			$randomPostId = rand(0, count($this->posts) - 1);
-////			$randomPost = $this->posts[$randomPostId];
-////
-////			$values['destination'] = $randomPost['id'];
-////
-////			foreach ($randomPost['taxonomies'] as $key => $taxonomy) {
-////
-////				if (!empty($taxonomy)) {
-////					$values[$key] = $taxonomy[0];
-////				}
-////			}
-//
-//		}
-
         return $values;
     }
 
     public function populate_choices($form)
     {
         foreach ($form['fields'] as &$field) {
-            if ($field->cssClass == 'package-regions') {
+            if ($field->cssClass == 'package_region') {
                 $field->choices = $this->get_taxonomy_choices('package_region');
             }
-            if ($field->cssClass == 'package-types') {
+            if ($field->cssClass == 'package_type') {
                 $field->choices = $this->get_taxonomy_choices('package_type');
             }
-            if ($field->cssClass == 'package-groups') {
+            if ($field->cssClass == 'package_group') {
                 $field->choices = $this->get_taxonomy_choices('package_group');
             }
             if ($field->cssClass == 'packages') {
@@ -325,3 +306,4 @@ class Package
 }
 
 new Package();
+

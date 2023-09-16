@@ -80,14 +80,14 @@ add_action('init', function () {
 
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_script('magnetic', RESOURCE_URL . '/scripts/magnetic.js', array('jquery'), time(), true);
-    wp_enqueue_script('alpine', RESOURCE_URL . '/scripts/vendor/alpine.min.js', array(), time(), true);
-    wp_enqueue_script('gsap', RESOURCE_URL . '/scripts/vendor/gsap.min.js', array(), time(), true);
+    wp_enqueue_script('alpine', RESOURCE_URL . '/scripts/lib/alpine.min.js', array(), time(), true);
+    wp_enqueue_script('gsap', RESOURCE_URL . '/scripts/lib/gsap.min.js', array(), time(), true);
     wp_enqueue_script('scripts', RESOURCE_URL . '/scripts/scripts.js', array('jquery', 'underscore', 'swiper'), time(), true);
-    wp_enqueue_script('isotope', RESOURCE_URL . '/scripts/vendor/isotope.pkgd.min.js', array(), time(), true);
-    wp_enqueue_script('isotope-packery', RESOURCE_URL . '/scripts/vendor/isotope-packery.js', array('isotope'), time(), true);
+    wp_enqueue_script('isotope', RESOURCE_URL . '/scripts/lib/isotope.pkgd.min.js', array(), time(), true);
+    wp_enqueue_script('isotope-packery', RESOURCE_URL . '/scripts/lib/isotope-packery.js', array('isotope'), time(), true);
     wp_enqueue_script('masonry-grid', RESOURCE_URL . '/scripts/masonry.js', array('isotope-packery'), time(), true);
-    wp_enqueue_script('swiper', RESOURCE_URL . '/scripts/vendor/swiper-bundle.js', array(), null, true);
-    wp_enqueue_style('swiper', RESOURCE_URL . '/styles/vendor/swiper-bundle.css', array(), null);
+    wp_enqueue_script('swiper', RESOURCE_URL . '/scripts/lib/swiper-bundle.js', array(), null, true);
+    wp_enqueue_style('swiper', RESOURCE_URL . '/styles/lib/swiper-bundle.css', array(), null);
 });
 
 add_action('init', function () {

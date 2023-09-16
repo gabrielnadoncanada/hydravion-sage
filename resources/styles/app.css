@@ -5,7 +5,7 @@
 @import "tailwindcss/utilities";
 @import "./custom-utilities.css";
 @import "./menu.css";
-@import "./vendor/gravity-form.css";
+@import "./lib/gravity-form.css";
 @import './typography.css';
 @import './typography2.css';
 

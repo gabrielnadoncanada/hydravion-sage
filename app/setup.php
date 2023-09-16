@@ -178,7 +178,16 @@ add_action('init', function () {
     $region_terms = get_terms(array(
         'taxonomy' => 'package_region',
         'hide_empty' => false,
+        'meta_query' => array(
+            array(
+                'key' => 'order',
+                'compare' => 'EXISTS', // ensures terms with 'order' meta key are retrieved
+            ),
+        ),
+        'orderby' => 'meta_value_num', // order by numeric meta value
+        'order' => 'ASC' // or 'DESC' depending on your needs
     ));
+
 
     if ($region_terms && !is_wp_error($region_terms)) {
         foreach ($region_terms as $term) {
@@ -188,6 +197,13 @@ add_action('init', function () {
             add_rewrite_rule("^$slug/?$", 'index.php?package_region=' . $slug, 'top');
         }
     }
+
+    $type_terms = get_terms(array(
+        'taxonomy' => 'package_type',
+        'hide_empty' => false,
+    ));
+
+
 }, 11);
 
 

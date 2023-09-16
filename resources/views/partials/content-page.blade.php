@@ -9,7 +9,7 @@
 				<div class="flex gap-2 mb-4 items-center categories">
 					<?= get_the_category_list('•') ?>
 				</div>
-				<h1 class="mb-7 "><?= get_the_title() ?></h1>
+                <x-text as="h1" theme="h1" class="mb-7"><?= get_the_title() ?></x-text>
 				<p>
 					<?= get_the_excerpt() ?>
 				</p>

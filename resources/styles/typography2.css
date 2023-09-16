@@ -1,6 +1,10 @@
 @layer base {
 
-    select, input, textarea {
+    select,
+    input,
+    textarea,
+    h1,
+    .h1 {
         font-size: clamp(calc(var(--min-font-size) * 1px), calc(var(--font-size) * 1px), calc(var(--font-size) / (1920 / 100) * 1vw));
         line-height: calc(var(--line-height-px) / var(--font-size));
     }
@@ -22,20 +26,20 @@
 
     /*}*/
 
-    /*h1 {*/
-    /*    @apply text-white font-semibold;*/
-    /*}*/
+    h1 {
+        @apply text-white font-semibold;
+    }
 
     /*!*h1, .h1, h2, .h2, h3, .h3, h4, .h4, h6, .h6 {*!*/
     /*!*    @apply font-display;*!*/
     /*!*}*!*/
 
-    /*h1,*/
-    /*.h1 {*/
-    /*    --font-size: 60;*/
-    /*    --min-font-size: 40;*/
-    /*    --line-height-px: 60;*/
-    /*}*/
+    h1,
+    .h1 {
+        --font-size: 60;
+        --min-font-size: 40;
+        --line-height-px: 60;
+    }
 
     /*h2,*/
     /*.h2 {*/

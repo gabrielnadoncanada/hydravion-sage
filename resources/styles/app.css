@@ -84,3 +84,15 @@ select {
 
 }
 
+
+/*#dynamic-post::before, #current-post::before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    width: 500px;*/
+/*    height: 100%;*/
+/*    left: 0;*/
+/*    top: 0;*/
+/*    pointer-events: none;*/
+/*    z-index: 2;*/
+/*    @apply bg-gradient-to-r from-primary;*/
+/*}*/

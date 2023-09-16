@@ -123,3 +123,16 @@ function get_default_image_placeholder()
 {
     return wp_get_attachment_url(get_option('theme_utilities_img_placeholder')) ?? get_stylesheet_directory_uri() . '/assets/img/placeholder.jpg';
 }
+
+
+
+add_action('template_redirect', 'custom_redirects');
+
+function custom_redirects() {
+    $requested_uri = $_SERVER['REQUEST_URI'];
+
+    if ($requested_uri === '/gay') {
+        wp_redirect(home_url('/anal'), 301);
+        exit;
+    }
+}

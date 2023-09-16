@@ -1,7 +1,7 @@
 @props(['show' => false])
 <div>
-    <div id="leaflet-container" class="mt-12" x-show="{{$show}}">
-        <div id="map" style="height:750px"></div>
+    <div id="leaflet-container" style="height: calc(100vh - 40px);" x-show="{{$show}}">
+        <div id="map" style="height:calc(100vh - 40px);"></div>
         <div class="leaflet-modal">
             <div class="leaflet-modal-content">
                 <span class="close">&times;</span>

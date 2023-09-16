@@ -76,7 +76,7 @@ bootloader()->boot();
 |
 */
 
-collect(['setup', 'filters', 'helpers', 'medias', 'Package', 'inc.vite'])
+collect(['constants','setup', 'filters', 'helpers', 'medias', 'Package', 'inc.vite'])
     ->each(function ($file) {
         if (!locate_template($file = "app/{$file}.php", true, true)) {
             wp_die(

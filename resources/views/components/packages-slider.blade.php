@@ -5,10 +5,11 @@
 
 
 <div
-    class="slider-carousel-container  z-[4] swiper swiper-container-free-mode absolute  bottom-[3rem] right-0 left-0 max-h-[205px]"
+    class="slider-carousel-container  z-[4] swiper swiper-container-free-mode absolute  bottom-[2rem] right-0 left-0 max-h-[205px]"
     id="{{$id}}">
     <div class="swiper-wrapper" style="transition-timing-function : linear;">
         @foreach ($packages as $package)
+
             <div class="wp-block-custom-slide swiper-slide w-full max-w-[390px]">
                 <div
                     class="shadow-lg magnetic group aspect-h-1 aspect-w-[1.91] block w-full overflow-hidden rounded-lg focus-within:ring-2 focus-within:ring-secondary-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
@@ -16,7 +17,7 @@
                         <img src="{{ $package["featured_image"] }}" alt="" class="object-cover">
                     @endif
                     @if ($package["title"] !== "")
-                        <h2 class="max-w-[75%] leading-6 absolute pointer-events-none p-4 md:p-6 z-[2] text-lg sm:text-2xl font-bold tracking-tight text-white ">
+                        <h2 class="max-w-[75%] leading-[32px] absolute pointer-events-none p-4  z-[2] text-[21px] font-[500] tracking-tight text-white ">
                             {{ $package["title"] }}
                         </h2>
                     @endif

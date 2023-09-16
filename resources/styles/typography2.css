@@ -4,7 +4,8 @@
     input,
     textarea,
     h1,
-    .h1 {
+    .h1,
+    .btn{
         font-size: clamp(calc(var(--min-font-size) * 1px), calc(var(--font-size) * 1px), calc(var(--font-size) / (1920 / 100) * 1vw));
         line-height: calc(var(--line-height-px) / var(--font-size));
     }
@@ -30,6 +31,11 @@
         @apply text-white font-semibold;
     }
 
+    .btn {
+            --font-size: 18;
+            --min-font-size: 16;
+            --line-height-px: 18;
+    }
     /*!*h1, .h1, h2, .h2, h3, .h3, h4, .h4, h6, .h6 {*!*/
     /*!*    @apply font-display;*!*/
     /*!*}*!*/

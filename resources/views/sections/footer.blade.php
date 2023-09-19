@@ -12,6 +12,27 @@
                          alt="Hydravion Québec">
             </a>
             <div>
+                <p class="leading-loose" style="font-style:normal;font-weight:400">Siège social : <br>2029, 15e avenue
+                    St-Augustin-des-Desmaures, QC G3A 1W7</p>
+                <p class="leading-loose" style="font-style:normal;font-weight:400">Base Saguenay : <br>Lac Sébastien,
+                    Saguenay, QC G7B3N7</p>
+                <p class="leading-loose" style="font-style:normal;font-weight:400">Base Mauricie : <br>30 Ch
+                    Contour-du-Lac-A-Beauce La Tuque, QC G9X 3N8</p>
+            </div>
+
+        </div>
+
+        @endif
+        <div class="flex gap-x-12 gap-y-4 flex-col md:flex-row justify-lg-between">
+            {{ wp_nav_menu([
+                'theme_location' => 'footer_navigation',
+                'container' => 'ul',
+                'menu_id' => 'footer-menu',
+                'menu_class' => 'text-white  leading-loose px-lg-10 mr-auto',
+            ]) }}
+
+
+            <div>
                 <p class="leading-loose">
                     <a class="text-white hover:text-secondary"
                        href="mailto:info@hydravionquebec.com">info@hydravionquebec.com</a>
@@ -44,26 +65,6 @@
                         </a>
                     </li>
                 </ul>
-            </div>
-        </div>
-
-        @endif
-        <div class="flex gap-x-12 gap-y-4 flex-col md:flex-row justify-lg-between">
-            {{ wp_nav_menu([
-                'theme_location' => 'footer_navigation',
-                'container' => 'ul',
-                'menu_id' => 'footer-menu',
-                'menu_class' => 'text-white  leading-loose px-lg-10 mr-auto',
-            ]) }}
-
-
-            <div>
-                <p class="leading-loose" style="font-style:normal;font-weight:400">Siège social : <br>2029, 15e avenue
-                    St-Augustin-des-Desmaures, QC G3A 1W7</p>
-                <p lass="leading-loose" style="font-style:normal;font-weight:400">Base Saguenay : <br>Lac Sébastien,
-                    Saguenay, Qc G7B3N7</p>
-                <p class="leading-loose" style="font-style:normal;font-weight:400">Base Mauricie : <br>30 Ch
-                    Contour-du-Lac-A-Beauce La Tuque, QC G9X 3N8</p>
             </div>
 
 

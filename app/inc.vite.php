@@ -57,6 +57,11 @@ add_action( 'wp_enqueue_scripts', function() {
                 // enqueue CSS files
                 foreach($manifest[$manifest_key[1]]['css'] as $css_file) {
                     wp_enqueue_style( 'main', DIST_URI . '/' . $css_file );
+
+                    add_action( 'enqueue_block_editor_assets', function($css_file){
+                        wp_enqueue_style( 'style', DIST_URI . '/' . $css_file, false, '1.0', 'all' );
+                    });
+
                 }
 
                 // enqueue main JS file

@@ -25,12 +25,12 @@
 
 
         @endif
-        <div class="flex gap-x-12 gap-y-4 flex-col md:flex-row lg:justify-between lg:ml-auto">
+        <div class="flex gap-x-12 gap-y-4 flex-col lg:flex-row lg:justify-between lg:ml-auto">
             {{ wp_nav_menu([
                 'theme_location' => 'footer_navigation',
                 'container' => 'ul',
                 'menu_id' => 'footer-menu',
-                'menu_class' => 'text-white  leading-loose px-lg-10 mr-auto',
+                'menu_class' => 'text-white gap-4 flex lg:flex-col leading-loose px-lg-10 mr-auto',
             ]) }}
 
 

@@ -25,7 +25,7 @@
 
 
         @endif
-        <div class="flex gap-x-12 gap-y-4 flex-col lg:flex-row lg:justify-between lg:ml-auto">
+        <div class="flex gap-x-12 gap-y-8 flex-col lg:flex-row lg:justify-between lg:ml-auto">
             {{ wp_nav_menu([
                 'theme_location' => 'footer_navigation',
                 'container' => 'ul',

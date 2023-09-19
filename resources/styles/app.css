@@ -152,3 +152,8 @@ html {
 h3 + h4 {
     margin-bottom: 1.5rem;
 }
+
+
+.wp-block-custom-slide h3 {
+    font-size: 21px !important;
+}

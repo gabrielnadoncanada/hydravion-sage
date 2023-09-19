@@ -5,7 +5,7 @@
 @include('sections.header')
 
 
-<main class="relative flex-grow transition-[padding-left] ease-in-out duration-300  bg-primary flex flex-col text-white  min-h-screen"
+<main id="main" class="relative flex-grow transition-[padding-left] ease-in-out duration-300  bg-primary flex flex-col text-white  min-h-screen"
 	  :class="sidebarOpen ? 'lg:pl-[490px]' : ''">
     @yield('content')
 	@include('sections.sidebar')

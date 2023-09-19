@@ -1,19 +1,22 @@
 @layer base {
 
-    select,
-    input,
-    textarea,
-    h1,
-    .h1,
-    .btn,
-    h2,
-    .h2,
-    h3,
-    .h3,
-    h4,
-    .h4{
-        font-size: clamp(calc(var(--min-font-size) * 1px), calc(var(--font-size) * 1px), calc(var(--font-size) / (1920 / 100) * 1vw)) !important;
-        line-height: calc(var(--line-height-px) / var(--font-size)) !important;
+    #main {
+        select,
+        input,
+        textarea,
+        h1,
+        .h1,
+        .btn,
+        h2,
+        .h2,
+        h3,
+        .h3,
+        h4,
+        .h4{
+            font-size: clamp(calc(var(--min-font-size) * 1px), calc(var(--font-size) * 1px), calc(var(--font-size) / (1920 / 100) * 1vw)) !important;
+            line-height: calc(var(--line-height-px) / var(--font-size)) !important;
+        }
+
     }
 
     select, input, textarea {

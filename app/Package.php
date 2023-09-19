@@ -146,6 +146,7 @@ class Package
                     'video' => !empty(get_field('featured_video')) ? get_field('featured_video') : '',
                     'id' => $post_id,
                     'price' => get_field('prix', $post_id) ?: '',
+                    'address' => get_field('address', $post_id) ?: '',
                     'isSelected' => false,
                     'leaflet' => get_field('leaflet_map') ?: '',
                     'taxonomies' => $this->get_post_taxonomies_terms($post_id),
@@ -197,6 +198,7 @@ class Package
                     'duration' => get_field('duree', $term) ?: '',
                     'length' => get_field('temps_de_vol', $term) ?: '',
                     'price' => get_field('prix', $term) ?: '',
+                    'address' => get_field('address', $term) ?: '',
                     'slides' => []
                 ];
             }

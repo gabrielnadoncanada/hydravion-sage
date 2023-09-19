@@ -29,12 +29,14 @@ class Package extends Composer
             'duration' => $this->get_duration(),
             'length' => $this->get_length(),
             'price' => $this->get_price(),
+            'address' => $this->get_address(),
             'content' => is_archive() ? false : get_the_content(),
             'video' => $this->get_video(),
             'slides' => is_single() ? [] : $this->get_slides(),
             'leaflet_map' => is_archive() ? false : get_field('leaflet_map'),
         ];
     }
+
 
     public function get_video()
     {
@@ -58,6 +60,13 @@ class Package extends Composer
         $obj = is_archive() ? get_queried_object() : null;
 
         return get_field('temps_de_vol', $obj);
+    }
+
+    public function get_address()
+    {
+        $obj = is_archive() ? get_queried_object() : null;
+
+        return get_field('address', $obj);
     }
 
     public function get_price()

@@ -30,7 +30,7 @@
                 'theme_location' => 'footer_navigation',
                 'container' => 'ul',
                 'menu_id' => 'footer-menu',
-                'menu_class' => 'text-white gap-4 flex lg:flex-col leading-loose px-lg-10 mr-auto',
+                'menu_class' => 'text-white gap-x-4 flex lg:flex-col leading-loose px-lg-10 mr-auto',
             ]) }}
 
 

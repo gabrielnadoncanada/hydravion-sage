@@ -6,7 +6,7 @@
             alt=""
         />
         <div aria-hidden="true" class="absolute inset-0 z-[1] bg-gradient-b-to-t "></div>
-       
+
         @if($video)
             <div class="video-wrapper z-[1]">
                 <iframe
@@ -20,8 +20,13 @@
                 <h1 class="text-5xl font-medium mb-5 leading-[1.1]">{!! $title !!} </h1>
             </div>
 
-            @if($duration || $length || $price)
+            @if($duration || $length || $price || $address)
                 <ul class="mb-6 ">
+                    @if($address)
+                        <li class="mb-3 inline-flex py-2 px-5 flex-col text-lg font-semibold bg-primary/80 justify-center border border-white rounded-lg mr-3">
+                            <span class="text-xs">Adresse</span>{{ $address }}
+                        </li>
+                    @endif
                     @if($duration)
                         <li class="mb-3 inline-flex py-2 px-5 flex-col text-lg font-semibold bg-primary/80 justify-center border border-white rounded-lg mr-3">
                             <span class="text-xs">Durée</span>{{ $duration }}
@@ -37,6 +42,7 @@
                             <span class="text-xs">Prix&nbsp;/&nbsp;personne</span>{{ $price }}$
                         </li>
                     @endif
+
                 </ul>
             @endif
             {!! $description !!}

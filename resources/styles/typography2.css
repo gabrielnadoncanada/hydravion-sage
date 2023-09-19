@@ -10,8 +10,8 @@
     .h2,
     h3,
     .h3{
-        font-size: clamp(calc(var(--min-font-size) * 1px), calc(var(--font-size) * 1px), calc(var(--font-size) / (1920 / 100) * 1vw));
-        line-height: calc(var(--line-height-px) / var(--font-size));
+        font-size: clamp(calc(var(--min-font-size) * 1px), calc(var(--font-size) * 1px), calc(var(--font-size) / (1920 / 100) * 1vw)) !important;
+        line-height: calc(var(--line-height-px) / var(--font-size)) !important;
     }
 
     select, input, textarea {

@@ -19,7 +19,7 @@
     margin-bottom: theme(spacing.6);
   }
 
-    :where(h1,.h1, h2, .h2, h3, .h3, h4, .h4, h6, .h6) {
+    :where(h1,.h1, h2, .h2, h3, .h3, h4, .h4, h6, .h6, p + p) {
         margin-bottom: 1.5rem !important;
     }
   /*!* Headings *!*/

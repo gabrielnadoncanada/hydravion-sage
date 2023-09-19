@@ -15,10 +15,10 @@
         .h4
         {
             font-size: clamp(calc(var(--min-font-size) * 1px), calc(var(--font-size) * 1px), calc(var(--font-size) / (1920 / 100) * 1vw)) !important;
-            line-height: calc(var(--line-height-px) / var(--font-size)) !important;
+            line-height: calc(var(--line-height-px) / var(--font-size));
         }
 
-    
+
     select, input, textarea {
         --font-size: 16;
         --min-font-size: 14;

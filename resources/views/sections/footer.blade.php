@@ -5,7 +5,7 @@
     <div aria-hidden="true" class="absolute w-full  z-[1] h-full bg-gradient-to-p-90 opacity-70"></div>
     <div
         class="z-[2] flex flex-col lg:flex-row gap-y-8 gap-x-20 justify-between text-white py-12 md:pb-[100px] px-6 relative max-w-[1536px] mx-auto">
-        <div class="flex flex-col gap-y-4">
+        <div class="flex flex-col gap-y-8">
             <a class="text-sm leading-6 " href="{{ get_current_language_code() == 'fr' ? '/' : '/en' }}">
                 @if (get_field('logo_light', 'option'))
                     <img decoding="async" loading="lazy" width="250" src="{{ get_field('logo_light', 'option') }}"

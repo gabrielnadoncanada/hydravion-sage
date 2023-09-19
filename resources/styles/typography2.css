@@ -7,7 +7,9 @@
     .h1,
     .btn,
     h2,
-    .h2{
+    .h2,
+    h3,
+    .h3{
         font-size: clamp(calc(var(--min-font-size) * 1px), calc(var(--font-size) * 1px), calc(var(--font-size) / (1920 / 100) * 1vw));
         line-height: calc(var(--line-height-px) / var(--font-size));
     }
@@ -55,18 +57,18 @@
         --min-font-size: 30;
         --line-height-px: 36;
     }
-
+    h3,
+    .h3 {
+        --font-size: 30;
+        --min-font-size: 24;
+        --line-height-px: 30;
+    }
     /*.categories a {*/
     /*    --font-size: 18;*/
     /*    --min-font-size: 14;*/
     /*    --line-height-px: 18;*/
     /*}*/
-    /*h3,*/
-    /*.h3 {*/
-    /*    --font-size: 30;*/
-    /*    --min-font-size: 25;*/
-    /*    --line-height-px: 30;*/
-    /*}*/
+
 
     /*:where(h3 + h4) {*/
     /*    margin-top: 1.5rem;*/

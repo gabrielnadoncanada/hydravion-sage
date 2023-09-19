@@ -48,7 +48,7 @@
         </div>
 
         @endif
-        <div class="flex gap-x-12 gap-y-4 flex-col md:flex-row justify-lg-between">
+        <div class="flex gap-x-12 gap-y-4 flex-col md:flex-row ">
             {{ wp_nav_menu([
                 'theme_location' => 'footer_navigation',
                 'container' => 'ul',

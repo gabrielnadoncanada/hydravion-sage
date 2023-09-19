@@ -4,7 +4,7 @@
          width="4160" height="6240"/>
     <div aria-hidden="true" class="absolute w-full  z-[1] h-full bg-gradient-to-p-90 opacity-70"></div>
     <div
-        class="z-[2] flex flex-col lg:flex-row gap-y-8 gap-x-20 justify-between text-white py-12 md:pb-[100px] px-6 relative max-w-[1536px] mx-auto">
+        class="z-[2] flex flex-col lg:flex-row gap-y-8 gap-x-20 text-white py-12 md:pb-[100px] px-6 relative max-w-[1536px] mx-auto">
         <div class="flex flex-col gap-y-8">
             <a class="text-sm leading-6 " href="{{ get_current_language_code() == 'fr' ? '/' : '/en' }}">
                 @if (get_field('logo_light', 'option'))
@@ -48,7 +48,7 @@
         </div>
 
         @endif
-        <div class="flex gap-x-12 gap-y-4 flex-col md:flex-row ">
+        <div class="flex gap-x-12 gap-y-4 flex-col md:flex-row justify-lg-between">
             {{ wp_nav_menu([
                 'theme_location' => 'footer_navigation',
                 'container' => 'ul',

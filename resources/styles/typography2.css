@@ -48,7 +48,7 @@
     .h1 {
         --font-size: 60;
         --min-font-size: 40;
-        --line-height-px: 60;
+        --line-height-px: 75;
     }
 
     h2,
@@ -61,7 +61,7 @@
     .h3 {
         --font-size: 30;
         --min-font-size: 24;
-        --line-height-px: 30;
+        --line-height-px: 40;
     }
     /*.categories a {*/
     /*    --font-size: 18;*/

@@ -58,11 +58,11 @@
 
 
             <div>
-                <p class="leading-loose" style="font-style:normal;font-weight:400">Siège social : 2029, 15e avenue
+                <p class="leading-loose" style="font-style:normal;font-weight:400">Siège social : <br>2029, 15e avenue
                     St-Augustin-des-Desmaures, QC G3A 1W7</p>
-                <p lass="leading-loose" style="font-style:normal;font-weight:400">Base Saguenay : Lac Sébastien,
-                    Saguenay, Qc G7B3N7<br>Canada</p>
-                <p class="leading-loose" style="font-style:normal;font-weight:400">Base Mauricie : 30 Ch
+                <p lass="leading-loose" style="font-style:normal;font-weight:400">Base Saguenay : <br>Lac Sébastien,
+                    Saguenay, Qc G7B3N7</p>
+                <p class="leading-loose" style="font-style:normal;font-weight:400">Base Mauricie : <br>30 Ch
                     Contour-du-Lac-A-Beauce La Tuque, QC G9X 3N8</p>
             </div>
 

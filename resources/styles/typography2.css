@@ -12,8 +12,8 @@
         h3,
         .h3,
         h4,
-        .h4,
-        p{
+        .h4
+        {
             font-size: clamp(calc(var(--min-font-size) * 1px), calc(var(--font-size) * 1px), calc(var(--font-size) / (1920 / 100) * 1vw)) !important;
             line-height: calc(var(--line-height-px) / var(--font-size)) !important;
         }
@@ -76,11 +76,7 @@
         --line-height-px: 30;
     }
 
-    p {
-        --font-size: 18;
-        --min-font-size: 16;
-        --line-height-px: 27;
-    }
+   
     /*.categories a {*/
     /*    --font-size: 18;*/
     /*    --min-font-size: 14;*/

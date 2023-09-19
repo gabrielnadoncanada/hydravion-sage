@@ -14,7 +14,7 @@
 
         </div>
 
-        <div class="flex flex-col gap-y-8">
+        <div class="flex flex-col gap-y-4">
             <p class="leading-loose" style="font-style:normal;font-weight:400">Siège social : <br>2029, 15e avenue
                 St-Augustin-des-Desmaures, QC G3A 1W7</p>
             <p class="leading-loose" style="font-style:normal;font-weight:400">Base Saguenay : <br>Lac Sébastien,
@@ -25,7 +25,7 @@
 
 
         @endif
-        <div class="flex gap-x-12 gap-y-4 flex-col md:flex-row justify-lg-between">
+        <div class="flex gap-x-12 gap-y-4 flex-col md:flex-row lg:justify-between lg:ml-auto">
             {{ wp_nav_menu([
                 'theme_location' => 'footer_navigation',
                 'container' => 'ul',

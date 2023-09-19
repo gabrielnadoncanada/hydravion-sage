@@ -19,6 +19,9 @@
     margin-bottom: theme(spacing.6);
   }
 
+    :where(h1,.h1, h2, .h2, h3, .h3, h4, .h4, h6, .h6) {
+        margin-bottom: 1.5rem;
+    }
   /*!* Headings *!*/
   /*:where(h2) {*/
   /*  font-weight: theme(fontWeight.semibold);*/

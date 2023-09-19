@@ -95,34 +95,17 @@ add_action('init', function () {
     $region_terms = get_terms(array(
         'taxonomy' => 'package_region',
         'hide_empty' => false,
-        'meta_query' => array(
-            array(
-                'key' => 'order',
-                'compare' => 'EXISTS',
-            ),
-        ),
-        'orderby' => 'meta_value_num',
-        'order' => 'ASC'
     ));
-
 
     if ($region_terms && !is_wp_error($region_terms)) {
         foreach ($region_terms as $term) {
             $slug = $term->slug;
-            add_rewrite_rule("^$slug/survols/([^/]+)/?$", 'index.php?package_group=$matches[1]&package_region=' . $slug, 'top');
-            add_rewrite_rule("^$slug/([^/]+)/?$", 'index.php?package_type=$matches[1]&package_region=' . $slug, 'top');
+            add_rewrite_rule("^$slug/([^/]+)/([^/]+)/?$", 'index.php?package_type=$matches[1]&package_group=$matches[2]&package_region_term=' . $slug, 'top');
+            add_rewrite_rule("^$slug/([^/]+)/?$", 'index.php?package_type=$matches[1]&package_region_term=' . $slug, 'top');
             add_rewrite_rule("^$slug/?$", 'index.php?package_region=' . $slug, 'top');
         }
     }
-
-    $type_terms = get_terms(array(
-        'taxonomy' => 'package_type',
-        'hide_empty' => false,
-    ));
-
-
 }, 11);
-
 
 
 

@@ -6,6 +6,7 @@
             alt=""
         />
         <div aria-hidden="true" class="absolute inset-0 z-[1] bg-gradient-b-to-t "></div>
+       
         @if($video)
             <div class="video-wrapper z-[1]">
                 <iframe

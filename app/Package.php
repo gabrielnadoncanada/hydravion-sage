@@ -143,7 +143,7 @@ class Package
                     'description' => get_the_excerpt() ?: '',
                     'permalink' => get_the_permalink(),
                     'featured_image' => $image,
-                    'video' => get_field('featured_video') ?: $image,
+                    'video' => !empty(get_field('featured_video')) ? get_field('featured_video') : '',
                     'id' => $post_id,
                     'price' => get_field('prix', $post_id) ?: '',
                     'isSelected' => false,
@@ -244,6 +244,7 @@ class Package
         $queriedObject = get_queried_object();
         $package_region_term = get_query_var('package_region_term');
         $package_group = get_query_var('package_group');
+        $package_type = get_query_var('package_type');
         $values = [];
 
         if (is_tax()) {
@@ -272,6 +273,14 @@ class Package
             });
             $values['package_group'] = array_values($selected_group)[0]['id'];
         }
+
+        if ($package_type) {
+            $selected_type = array_filter($this->taxonomies_terms['package_type']['terms'], function ($item) use ($package_type) {
+                return $item['permalink'] === $package_type;
+            });
+            $values['package_type'] = array_values($selected_type)[0]['id'];
+        }
+
         return $values;
     }
 
@@ -300,6 +309,7 @@ class Package
     public function render()
     {
         $_POST["item"]["description"] = stripslashes($_POST["item"]["description"]);
+        $_POST["item"]["title"] = stripslashes($_POST["item"]["title"]);
         $_POST["item"]["content"] = stripslashes($_POST["item"]["content"]);
 
         echo view('components.package', $_POST["item"])->render();

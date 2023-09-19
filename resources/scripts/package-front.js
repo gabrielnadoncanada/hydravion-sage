@@ -21,12 +21,15 @@
             this.defaultSettings = JSON.parse(postData.defaultSettings);
             this.defaultSelected = postData.selected;
             this.adminUrl = postData.admin_url;
+            this.removedOptions = [];
             this.selectors = this.cacheSelectors();
             this.isFront = postData.isFront;
             this.setDefaultSelected();
             this.selectedOptions = this.getSelectedOptions();
             this.homeUrl = postData.home_url;
             this.initEventListeners();
+
+
         }
 
         setDefaultSelected() {
@@ -34,6 +37,8 @@
             this.selectors.type.val(this.defaultSelected.package_type);
             this.selectors.group.val(this.defaultSelected.package_group);
             this.selectors.package.val(this.defaultSelected.destination);
+
+            this.updatePackagesList();
         }
 
         cacheSelectors() {
@@ -48,9 +53,10 @@
 
         initEventListeners() {
             ['region', 'type', 'group', 'package'].forEach(name => {
-                this.selectors[name].on("change", this.updatePackage.bind(this, name));
+                this.selectors[name].on("change", $.proxy(this.updatePackage, this, name));
             });
         }
+
 
         checkMatches(taxonomiesTerms, packageTaxonomies) {
             return taxonomiesTerms.every(({taxonomy, terms}) => {
@@ -86,14 +92,16 @@
         }
 
         updatePackage(type) {
-
             if (type !== 'package') {
                 this.selectedOptions.package = null;
                 this.selectors.package.val('');
             }
+
             this.selectedOptions = this.getSelectedOptions();
 
             this.updatePackagesList();
+
+
             let lastSelectedOptionKey = this.getLastSelectedOptionKey();
             this.updateCurrentUrl(lastSelectedOptionKey);
 
@@ -133,10 +141,6 @@
         updatePackagesList() {
             const taxonomiesTerms = this.getSelectedTaxonomiesTerms();
 
-            if (taxonomiesTerms.length === 0) {
-                // $(".packages").hide();
-                return [];
-            }
 
             let isMatched = false;
             let matchedPackages = [];
@@ -151,10 +155,19 @@
 
                 const matches = this.checkMatches(taxonomiesTerms, pkg.taxonomies);
                 isMatched = isMatched || matches;
-                $(option).toggle(matches);
 
                 if (matches) {
                     matchedPackages.push(pkg);
+
+                    console.log(this.removedOptions.includes(option));
+                    // If the option was previously removed, re-append it
+                    if (this.removedOptions.includes(option)) {
+                        this.selectors.package.append(option);
+                    }
+                } else {
+                    // Remove the option and store it in removedOptions
+                    this.removedOptions.push(option);
+                    $(option).remove();
                 }
             });
 
@@ -162,9 +175,10 @@
                 $(".packages").toggleClass("d-none", !isMatched);
             }, 0);
 
-
             this.avalaiblePackages = matchedPackages;
         }
+
+
 
         updateView(selectedItem, type) {
             const $dynamicPost = $(DYNAMIC_POST_EL);
@@ -196,6 +210,8 @@
                 }
 
                 let html = '';
+
+                console.log(selectedItem);
                 $.ajax({
                     type: 'POST',
                     url: this.adminUrl, // This variable is automatically defined by WordPress for AJAX in the admin. For the frontend, you'll need to localize the script (see step 4).
@@ -248,6 +264,7 @@
         if ($(`#gform_${formId}`).find('.packages').length) {
             window[PACKAGE_SELECTOR] = new PackageSelector(postData);
         }
+
     });
 })(jQuery));
 

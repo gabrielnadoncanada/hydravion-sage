@@ -47,12 +47,12 @@
         --line-height-px: 60;
     }
 
-    /*h2,*/
-    /*.h2 {*/
-    /*    --font-size: 36;*/
-    /*    --min-font-size: 30;*/
-    /*    --line-height-px: 36;*/
-    /*}*/
+    h2,
+    .h2 {
+        --font-size: 36;
+        --min-font-size: 30;
+        --line-height-px: 36;
+    }
 
     /*.categories a {*/
     /*    --font-size: 18;*/

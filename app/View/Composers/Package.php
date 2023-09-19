@@ -40,7 +40,10 @@ class Package extends Composer
     {
         $obj = is_archive() ? get_queried_object() : null;
 
-        return get_field('featured_video', $obj);
+        if (!empty(get_field('featured_video', $obj))) {
+            return get_field('featured_video', $obj);
+        }
+        return false;
     }
 
     public function get_duration()
@@ -91,7 +94,7 @@ class Package extends Composer
         $image = get_field('featured_image', $obj);
 
         if (!$image) {
-            if(is_single()){
+            if (is_single()) {
                 $image = get_the_post_thumbnail_url();
             }
 

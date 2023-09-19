@@ -43,6 +43,8 @@ add_filter('upload_mimes', function ($mimes) {
 
 add_filter('query_vars', function ($vars) {
     $vars[] = 'package_region_term';
+    $vars[] = 'package_type_term';
+    $vars[] = 'package_group_term';
     return $vars;
 });
 
@@ -57,11 +59,13 @@ add_filter('term_link', function ($link, $term, $taxonomy) {
 
 add_filter('gform_field_value_package_group', function ($value) {
 
+
     if (is_single() && get_post_type() == 'package') {
         return get_the_terms(get_the_ID(), 'package_group')[0]->term_id;
     }
 
-    $term_slug = isset($_GET['package_group']) ? sanitize_text_field($_GET['package_group']) : '';
+    $term_slug = get_query_var('package_group') ? sanitize_text_field(get_query_var('package_group')) : '';
+
 
     if (!empty($term_slug)) {
         $term = get_term_by('slug', $term_slug, 'package_group');
@@ -74,11 +78,15 @@ add_filter('gform_field_value_package_group', function ($value) {
 
 
 add_filter('gform_field_value_package_region', function ($value) {
+
     if (is_single() && get_post_type() == 'package') {
         return get_the_terms(get_the_ID(), 'package_region')[0]->term_id;
     }
 
-    $term_slug = isset($_GET['package_region']) ? sanitize_text_field($_GET['package_region']) : '';
+
+    $term_slug = get_query_var('package_region_term') ? sanitize_text_field(get_query_var('package_region_term')) : '';
+//
+
 
     if (!empty($term_slug)) {
         $term = get_term_by('slug', $term_slug, 'package_region');
@@ -91,14 +99,21 @@ add_filter('gform_field_value_package_region', function ($value) {
 
 
 add_filter('gform_field_value_package_type', function ($value) {
+
     if (is_single() && get_post_type() == 'package') {
         return get_the_terms(get_the_ID(), 'package_type')[0]->term_id;
     }
 
-    $term_slug = isset($_GET['package_type']) ? sanitize_text_field($_GET['package_type']) : '';
+
+    $term_slug = get_query_var('package_type') ? sanitize_text_field(get_query_var('package_type')) : '';
+
 
     if (!empty($term_slug)) {
+
+
         $term = get_term_by('slug', $term_slug, 'package_type');
+
+
         if ($term && !is_wp_error($term)) {
             return $term->term_id;
         }
@@ -114,7 +129,7 @@ add_filter('gform_field_value_package', function ($value) {
 
 
 add_filter('mce_external_plugins', function ($plugins) {
-    $plugins['table'] = get_template_directory_uri() . '/resources/scripts/tinymce-table-plugin.min.js';
+    $plugins['table'] = get_template_directory_uri() . '/resources/scripts/lib/tinymce-table-plugin.min.js';
     return $plugins;
 });
 

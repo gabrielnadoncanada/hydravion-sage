@@ -1,5 +1,14 @@
 
-<header x-data="{ open: false }" class="fixed w-full z-[99999] ">
+<header
+		x-data="{ scrolled: false, open: false }"
+		x-init="() => {
+            window.addEventListener('scroll', () => {
+                scrolled = window.scrollY > 0;
+            });
+        }"
+		class="fixed w-full z-[99999] transition-all ease-in	"
+		:class="{'bg-primary ': scrolled}"
+>
 	<nav class="relative px-6 py-4 flex justify-between items-center h-[75px]">
 		<a class="text-3xl font-bold leading-none" href="{{ get_current_language_code() == 'fr' ? '/' : '/en' }}">
 			@if(get_field('logo_light', 'option'))

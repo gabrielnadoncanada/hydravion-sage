@@ -1,6 +1,6 @@
 @layer base {
 
-    #main {
+
         select,
         input,
         textarea,
@@ -18,8 +18,7 @@
             line-height: calc(var(--line-height-px) / var(--font-size)) !important;
         }
 
-    }
-
+    
     select, input, textarea {
         --font-size: 16;
         --min-font-size: 14;
@@ -76,7 +75,7 @@
         --line-height-px: 30;
     }
 
-   
+
     /*.categories a {*/
     /*    --font-size: 18;*/
     /*    --min-font-size: 14;*/

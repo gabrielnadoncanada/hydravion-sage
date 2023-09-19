@@ -17,9 +17,9 @@
                         <img src="{{ $package["featured_image"] }}" alt="" class="object-cover">
                     @endif
                     @if ($package["title"] !== "")
-                        <h2 class="max-w-[75%] leading-[32px] absolute pointer-events-none p-4  z-[2] text-[21px] font-[500] tracking-tight text-white ">
+                        <h3 class="max-w-[75%] leading-[32px] absolute pointer-events-none p-4  z-[2] text-[21px] font-[500] tracking-tight text-white ">
                             {{ $package["title"] }}
-                        </h2>
+                        </h3>
                     @endif
                     @if ($package["permalink"] !== "")
                         <a href="{{ $package["permalink"] }}"

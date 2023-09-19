@@ -24,8 +24,8 @@
     font-weight: theme(fontWeight.semibold);
     font-family: theme(fontFamily.display);
     font-variation-settings: theme(fontFamily.display[1].fontVariationSettings);
-    font-size: theme(fontSize.2xl);
-    line-height: theme(fontSize.2xl[1].lineHeight);
+    /*font-size: theme(fontSize.2xl);*/
+    /*line-height: theme(fontSize.2xl[1].lineHeight);*/
     /*margin-top: theme(spacing.16);*/
   }
 
@@ -33,8 +33,8 @@
     font-weight: theme(fontWeight.semibold);
     font-family: theme(fontFamily.display);
     font-variation-settings: theme(fontFamily.display[1].fontVariationSettings);
-    font-size: theme(fontSize.3xl);
-    line-height: 1.3;
+    /*font-size: theme(fontSize.3xl);*/
+    /*line-height: 1.3;*/
     margin-top: theme(spacing.10);
   }
 

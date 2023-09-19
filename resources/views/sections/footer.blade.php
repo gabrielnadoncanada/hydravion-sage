@@ -11,16 +11,18 @@
                     <img decoding="async" loading="lazy" width="250" src="{{ get_field('logo_light', 'option') }}"
                          alt="Hydravion Québec">
             </a>
-            <div>
-                <p class="leading-loose" style="font-style:normal;font-weight:400">Siège social : <br>2029, 15e avenue
-                    St-Augustin-des-Desmaures, QC G3A 1W7</p>
-                <p class="leading-loose" style="font-style:normal;font-weight:400">Base Saguenay : <br>Lac Sébastien,
-                    Saguenay, QC G7B3N7</p>
-                <p class="leading-loose" style="font-style:normal;font-weight:400">Base Mauricie : <br>30 Ch
-                    Contour-du-Lac-A-Beauce La Tuque, QC G9X 3N8</p>
-            </div>
 
         </div>
+
+        <div>
+            <p class="leading-loose" style="font-style:normal;font-weight:400">Siège social : <br>2029, 15e avenue
+                St-Augustin-des-Desmaures, QC G3A 1W7</p>
+            <p class="leading-loose" style="font-style:normal;font-weight:400">Base Saguenay : <br>Lac Sébastien,
+                Saguenay, QC G7B3N7</p>
+            <p class="leading-loose" style="font-style:normal;font-weight:400">Base Mauricie : <br>30 Ch
+                Contour-du-Lac-A-Beauce La Tuque, QC G9X 3N8</p>
+        </div>
+
 
         @endif
         <div class="flex gap-x-12 gap-y-4 flex-col md:flex-row justify-lg-between">

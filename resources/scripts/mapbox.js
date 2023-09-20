@@ -1,15 +1,4 @@
-mapboxgl.accessToken = 'pk.eyJ1IjoiamNocy1tYXR0aGV3IiwiYSI6ImNqYXd4Z3lsYjBzNWMyd21rODEyb2VsNW4ifQ.reqWa5So56wgdT2aUar8dA';
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/satellite-v9',
 
-    center: [-71.901, 48.747], // starting position [lng, lat]
-    zoom: 12.2,
-    bearing: -0.5,
-    pitch: 35,
-    interactive: true
-
-});
 
 var popups = []
 
@@ -29,7 +18,26 @@ var scenes = [
             pitch: 35,
             duration: 4000
         },
-        markers: null
+        markers: null,
+        layers: [{
+            'id': 'new_park',
+            'type': 'fill',
+            'source': {
+                'type': 'geojson',
+                'data': {
+                    'type': 'Feature',
+                    'geometry': {
+                        'type': 'Polygon',
+                        'coordinates': [[[-83.1455, 42.4137], [-83.145, 42.4137], [-83.14505, 42.41465], [-83.14555, 42.41465]]]
+                    }
+                }
+            },
+            'layout': {},
+            'paint': {
+                'fill-color': '#808',
+                'fill-opacity': 0.7
+            }
+        }]
     },
     {
         card: {
@@ -384,13 +392,7 @@ function new_street_view(container, lat, lon, heading = 180, zoom = 1) {
         })
 }
 
-function drawLayers(scene) {
-    if (typeof scene.layers != 'undefined' && scene.layers != null) {
-        scene.layers.forEach(function (layer) {
-            map.addLayer(layer)
-        })
-    }
-}
+
 
 function closePopups() {
     popups.forEach(x => x.remove())

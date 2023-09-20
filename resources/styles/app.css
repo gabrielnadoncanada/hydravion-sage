@@ -209,3 +209,7 @@ body .is-layout-constrained > * + * {
     margin-block-end: 0;
 }
 
+
+.gform_wrapper.gravity-theme .sq-input-container input {
+    padding: 1rem 1rem 1rem!important;
+}

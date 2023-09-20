@@ -147,13 +147,13 @@ p {
 
 #map2 {
     position: absolute;
-    top: 75px;
+    top: 0;
     bottom: 0;
     width: 100%;
 }
 
 #map2 {
-    position: fixed;
+
     width: 100%;
     overflow: hidden;
     padding-right: 20px;

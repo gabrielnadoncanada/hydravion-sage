@@ -269,3 +269,7 @@ p {
 
 
 
+#card[data-scene-number="0"] #card-title{
+    color: red !important;
+
+}

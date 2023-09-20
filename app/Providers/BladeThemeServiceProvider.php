@@ -10,7 +10,7 @@ class BladeThemeServiceProvider extends ServiceProvider
 	public function register()
 	{
 
-		$this->mergeConfigFrom(__DIR__.'/../config/blade-components.php', 'blade-components');
+		$this->mergeConfigFrom(__DIR__.'/../Config/blade-components.php', 'blade-components');
 	}
 
 	public function boot()
@@ -41,7 +41,7 @@ class BladeThemeServiceProvider extends ServiceProvider
 		}
 
 		$this->publishes([
-			__DIR__.'/../config/blade-components.php' => $this->app->configPath('blade-components.php'),
+			__DIR__.'/../Config/blade-components.php' => $this->app->configPath('blade-components.php'),
 		], 'blade-components');
 
 		$this->publishes([

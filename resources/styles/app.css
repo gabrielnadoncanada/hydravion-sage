@@ -204,3 +204,8 @@ h3 + h4 {
 }
 
 
+body .is-layout-constrained > * + * {
+    margin-block-start: 24px;
+    margin-block-end: 0;
+}
+

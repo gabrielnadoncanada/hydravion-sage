@@ -137,3 +137,6 @@ add_filter('mce_buttons', function ($buttons) {
     array_push($buttons, 'table');
     return $buttons;
 });
+
+
+

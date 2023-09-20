@@ -54,7 +54,7 @@
         </div>
     </div>
 
-    <div class="bg-white text-black relative h-screen">
+    <div class="bg-white text-black relative " style="height: calc(100vh - 75px);">
         @if($content)
             <div class="max-w-[1536px] mx-auto px-6 py-10 lg:py-20">
                 <div class="content typography is-layout-constrained">

@@ -58,7 +58,8 @@ a {
 
 .map-card__title {
     padding: 0 20px;
-    font-size: 1.5rem;
+    font-size: 4rem;
+    line-height: 1.2em;
     font-weight: bold;
 }
 .map-card__body {
@@ -260,6 +261,11 @@ p {
     text-transform: uppercase;
 }
 
+
+.mapboxgl-marker svg {
+    cursor: pointer;
+    transform: translate(-45%, -45%);
+}
 
 
 

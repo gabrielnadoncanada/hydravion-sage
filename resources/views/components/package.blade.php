@@ -63,7 +63,7 @@
             </div>
         @endif
         @if($leaflet_map)
-            <x-map></x-map>
+            <x-map :title="get_the_title()"></x-map>
 {{--            <x-leaflet-map show="{{is_single() ? 'true' : 'window.leafletmap'}}"></x-leaflet-map>--}}
         @endif
     </div>

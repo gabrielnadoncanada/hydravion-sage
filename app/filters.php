@@ -139,31 +139,4 @@ add_filter('mce_buttons', function ($buttons) {
 });
 
 
-add_filter('gform_entries_field_value', function ($value, $form_id, $field_id, $entry) {
-    return showFieldChoiceLabel($value, $form_id, $field_id, $entry);
-}, 10, 4);
-
-add_filter( 'gform_entry_field_value', function ( $value, $field, $entry, $form ){
-    return showFieldChoiceLabel($value, $form['id'], $field->id, $entry);
-}, 10, 4 );
-
-
-function showFieldChoiceLabel($value, $form_id, $field_id, $entry)
-{
-    $field = GFAPI::get_field($form_id, $field_id);
-    $value_fields = array(
-        'checkbox',
-        'radio',
-        'select'
-    );
-
-    if (is_numeric($field_id) && in_array($field->get_input_type(), $value_fields)) {
-        $value = $field->get_value_entry_detail(RGFormsModel::get_lead_field_value($entry, $field), '', true, 'text');
-    }
-
-    return $value;
-}
-
-
-
 

@@ -8,6 +8,7 @@
 		<div aria-hidden="true" class="absolute inset-0 z-[1] bg-gradient-b-to-t "></div>
 
 		<div class="max-w-[550px] z-[2]">
+
 			<h1 class="text-5xl font-medium mb-7 leading-[1.1]"><?= get_the_title() ?></h1>
 		</div>
 

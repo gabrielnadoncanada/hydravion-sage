@@ -17,7 +17,7 @@
         @endif
         <div class="max-w-[490px] z-[2]">
             <div class=" z-[2] mb-7 ">
-                <h1 class="text-5xl font-medium mb-5 leading-[1.1]">{!! $title !!} </h1>
+                <x-text as="h1" theme="h1" class="mb-5 font-normal">{!! $title !!} </x-text>
             </div>
 
             @if($duration || $length || $price || $address)
@@ -57,7 +57,7 @@
     <div class="bg-white text-black ">
         @if($content)
             <div class="max-w-[1536px] mx-auto px-6 py-10 lg:py-20">
-                <div class="content typography">
+                <div class="content typography is-layout-constrained">
                     {!! $content !!}
                 </div>
             </div>

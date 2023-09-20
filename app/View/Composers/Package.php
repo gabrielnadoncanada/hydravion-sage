@@ -123,6 +123,7 @@ class Package extends Composer
 
         $obj = get_queried_object();
 
+
         switch ($obj->taxonomy) {
             case 'package_region':
                 if ($obj->term_id != 21) {

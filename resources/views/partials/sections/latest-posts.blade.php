@@ -9,7 +9,8 @@
             ));
         @endphp
 
-        <div class="my-20"><h2 class="text-center my-12 text-primary">Articles récents</h2>
+        <div class="my-20">
+            <x-text as="h2" theme="h2" class=" my-12 text-center text-primary">Articles récents</x-text>
             <div
                 class="grid grid-cols-1 gap-x-4 gap-y-8 xs:grid-cols-2 lg:grid-cols-3 sm:gap-x-6 xl:gap-x-8 w-full mx-auto">
                 @foreach($myquery->get_posts() as $post)
@@ -17,7 +18,6 @@
                 @endforeach
             </div>
         </div>
-
     </div>
 
     <div style="border-top-color:#eaeaea;border-top-width:1px" class="px-6">

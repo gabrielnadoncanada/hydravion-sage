@@ -54,7 +54,6 @@ class Package
     private function add_filters(): void
     {
         add_filter('gform_pre_render', [$this, 'populate_choices']);
-
         add_filter('gform_pre_validation', [$this, 'populate_choices']);
         add_filter('gform_pre_submission_filter', [$this, 'populate_choices']);
         add_filter('gform_admin_pre_render', [$this, 'populate_choices']);

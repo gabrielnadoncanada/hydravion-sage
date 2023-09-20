@@ -6,28 +6,29 @@
 @import "./custom-utilities.css";
 @import "./menu.css";
 @import "./lib/gravity-form.css";
-@import './typography.css';
-@import './typography2.css';
+/*@import './typography.css';*/
+@import './typo.css';
+/*@import './typography2.css';*/
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
 @media only screen and (min-width: 600px) {
-    #masonry-grid .wp-block-post {
+    #grid .wp-block-post {
         width: 25% !important;
     }
 
-    #masonry-grid .wp-block-post:nth-child(3n+1) {
+    #grid .wp-block-post:nth-child(3n+1) {
         width: 50% !important;
     }
 }
 
-#masonry-grid .wp-block-post > div {
+#grid .wp-block-post > div {
     min-height: 100% !important;
     position: relative;
 }
 
-#masonry-grid .wp-block-post > div::before {
+#grid .wp-block-post > div::before {
     content: "";
     padding-top: 100% !important;
 }
@@ -156,4 +157,48 @@ h3 + h4 {
 
 .wp-block-custom-slide h3 {
     font-size: 21px !important;
+}
+
+
+.grid {
+    width: 100%;
+}
+
+.grid-item > div {
+
+
+   border-radius: 0 !important;
+}
+
+
+
+@media only screen and (max-width: 782px) {
+    #grid .grid-item {
+        width: 100% !important;
+    }
+}
+
+#grid .grid-item {
+    width: 25%;
+}
+
+#grid .grid-sizer, .grid-item {
+    width: 25%;
+}
+
+#grid .grid-item--width {
+    width: 25%;
+}
+
+#grid .grid-item--width2 {
+    width: 50%;
+}
+
+#grid .grid-item--height2 {
+
+}
+
+#grid .grid-item--width2-height2 {
+    width: 50%;
+    aspect-ratio: 1;
 }

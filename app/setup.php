@@ -87,6 +87,7 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_script('isotope-packery', RESOURCE_URL . '/scripts/lib/isotope-packery.js', array('isotope'), time(), true);
     wp_enqueue_script('masonry-grid', RESOURCE_URL . '/scripts/masonry.js', array('isotope-packery'), time(), true);
     wp_enqueue_script('swiper', RESOURCE_URL . '/scripts/lib/swiper-bundle.js', array(), null, true);
+    wp_enqueue_script('masonry-grid-init', RESOURCE_URL . '/scripts/masonry-grid.js', array(), null, true);
     wp_enqueue_style('swiper', RESOURCE_URL . '/styles/lib/swiper-bundle.css', array(), null);
 });
 

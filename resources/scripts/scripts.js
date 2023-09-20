@@ -86,4 +86,19 @@
     window.initSlider();
 
 
+
+    // $(document).ready(function() {
+    //     // Initialize Packery
+    //     var $grid = $('#grid').packery({
+    //         itemSelector: '.grid-item',
+    //         columnWidth: 200, // Width of one grid item
+    //         gutter: 10 // Adjust as needed
+    //     });
+    //
+    //     // Bind event listener for layout complete (optional)
+    //     $grid.packery('on', 'layoutComplete', function() {
+    //         console.log('Layout complete');
+    //     });
+    // });
+
 })(jQuery));

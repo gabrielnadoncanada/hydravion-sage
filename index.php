@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	  <?php wp_head(); ?>
-	  <script>
+      <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
+
+      <script>
         function hashHandler() {
             return {
                 hash: window.location.hash,

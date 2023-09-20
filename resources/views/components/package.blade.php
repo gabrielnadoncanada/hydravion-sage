@@ -54,7 +54,7 @@
         </div>
     </div>
 
-    <div class="bg-white text-black relative " style="height: calc(100vh - 75px);">
+    <div class="bg-white text-black " >
         @if($content)
             <div class="max-w-[1536px] mx-auto px-6 py-10 lg:py-20">
                 <div class="content typography is-layout-constrained">
@@ -62,9 +62,10 @@
                 </div>
             </div>
         @endif
-        @if($leaflet_map)
-            <x-map :title="get_the_title()"></x-map>
-{{--            <x-leaflet-map show="{{is_single() ? 'true' : 'window.leafletmap'}}"></x-leaflet-map>--}}
+        @if($leaflet_map && is_single())
+            <div class="relative" style="height: calc(100vh - 75px);">
+                <x-map show="{{is_single() ? 'true' : 'false'}}" :title="get_the_title()"></x-map>
+            </div>
         @endif
     </div>
 </div>

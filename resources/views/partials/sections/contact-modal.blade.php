@@ -8,7 +8,7 @@
      x-transition:leave-end="translate-y-full"
 
      class="z-[99999] fixed top-0 left-0 w-full h-screen flex items-center justify-center"
-     style="transition: all; transition-duration: 750ms; transition-timing-function: cubic-bezier(0.5, 0.1, 0.1, 1) !important"
+     style="display: none;transition: all; transition-duration: 750ms; transition-timing-function: cubic-bezier(0.5, 0.1, 0.1, 1) !important"
 >
     <a href="#" class="fixed right-0 top-0 z-10 p-6">
         <svg class="h-[20px] w-[20px] text-white cursor-pointer hover:text-secondary" xmlns="http://www.w3.org/2000/svg"

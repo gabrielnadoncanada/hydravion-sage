@@ -56,11 +56,6 @@ body {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='45' height='45' viewBox='0 0 45 45' fill='none'%3E%3Cpath d='M45 22.5C45 34.9264 34.9264 45 22.5 45C10.0736 45 0 34.9264 0 22.5C0 10.0736 10.0736 0 22.5 0C34.9264 0 45 10.0736 45 22.5Z' fill='white'/%3E%3Cpath d='M8.51348 23.1081L17.6351 16.7885V29.4278L8.51348 23.1081Z' fill='%2332c5f4'/%3E%3Cpath d='M37.7027 23.1081L28.581 29.4278V16.7885L37.7027 23.1081Z' fill='%2332c5f4'/%3E%3C/svg%3E");
 }
 
-/* admin bar fix */
-body.admin-bar {
-    max-height: calc(100vh - 32px);
-}
-
 body {
     @apply text-primary;
 }

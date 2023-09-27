@@ -221,18 +221,15 @@
                         // Other data you want to pass to the server...
                     },
                     success: function(response) {
-
-
                         $dynamicPost.html(response);
                         window.initSlider();
 
                         if(selectedItem.leaflet){
-                            window.leafletmap = new LeafletFront(JSON.parse(selectedItem.leaflet));
-
+                            window.leafletmap = new LeafletFront(selectedItem);
+                            console.log(window.leafletmap)
                         } else {
                             window.leafletmap = false;
                         }
-
                     },
                     error: function(error) {
                         // Handle any errors here...

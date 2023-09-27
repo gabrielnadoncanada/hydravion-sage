@@ -42,7 +42,7 @@ class PackageSlider extends Composer
         if ($query->have_posts()) {
             foreach ($query->get_posts() as $post) {
                 $packages[] = [
-                    'title' => $post->post_title,
+                    'title' => stripslashes($post->post_title),
                     'featured_image' => get_the_post_thumbnail_url($post),
                     'permalink' => get_the_permalink($post),
                 ];

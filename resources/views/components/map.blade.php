@@ -11,7 +11,7 @@
                 </div>
             @endif
             <div id="card_body" class="map-card__body"></div>
-            <div id="card_nav" class="map-card__nav map-card__nav_cover"><span id="card_nav__prev"></span><span
+            <div id="card_nav" class="map-card__nav map-card__nav_cover" style="display: none;"><span id="card_nav__prev"></span><span
                     id="card_nav__next">Suivant &rarr;</span></div>
         </div>
     </div>

@@ -29,17 +29,11 @@ a {
     position: absolute;
     left: 2vw;
     top: 7.5vh;
-    /*bottom: 50vh;*/
     padding-top: 20px;
-    width: 35vw;
     min-width: 135px;
     max-width: 450px;
     min-height: 15vh;
     max-height: 80vh;
-    /*max-height: 400px;*/
-    /*height: 30vh;*/
-    /*margin-top: 7.5vh;
-    margin-left: 2vw;*/
     float: left;
     clear: left;
     background-color: #222;
@@ -155,7 +149,7 @@ a {
 
 @media screen and (max-width: 620px) {
     .map-card {
-        width: 50%;
+       
         margin-left: 0;
         background-color:rgba(0, 0, 0, 0.6);
     }

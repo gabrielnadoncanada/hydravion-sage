@@ -309,11 +309,11 @@ class Package
 
     public function render()
     {
-        $_POST["item"]["description"] = stripslashes($_POST["item"]["description"]);
-        $_POST["item"]["title"] = stripslashes($_POST["item"]["title"]);
-        $_POST["item"]["content"] = stripslashes($_POST["item"]["content"]);
-
-        echo view('components.package', $_POST["item"])->render();
+        $_POST["item"]["description"] = $_POST["item"]["description"];
+        $_POST["item"]["title"] = $_POST["item"]["title"];
+        $_POST["item"]["content"] = $_POST["item"]["content"];
+        $view = view('components.package', $_POST["item"])->render();
+        echo stripslashes($view);
         die();
     }
 }

@@ -17,7 +17,7 @@
         </svg>
     </a>
 
-    <div aria-hidden="true" class="fixed h-full w-full z-[1] bg-gradient-to-p-90 opacity-70"></div>
+    <div @click="() => { window.location.hash = '#'}" aria-hidden="true" class="fixed h-full w-full z-[1] bg-gradient-to-p-90 opacity-70"></div>
     <img src="{{ asset('images/default.webp') }}"
          class="fixed h-full w-full object-cover"
          alt="contact modal background" width="4160" height="6240"/>

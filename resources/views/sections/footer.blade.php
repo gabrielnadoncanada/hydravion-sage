@@ -76,7 +76,7 @@
         class="flex flex-col md:flex-row z-[2] md:z-[99999] -mt-[1rem] pb-[50px] md:py-2 md:mt-0 gap-y-2 relative md:fixed bottom-0 w-full left-0 justify-between md:items-center md:bg-foreground-gray px-6">
         <a href="#nous-joindre"
            class="text-sm text-left leading-6 text-white hover:text-secondary">{{ __('Contact us', 'ng') }}</a>
-        <p class="text-sm leading-6 text-white">{!! '@' . date('Y') . '&nbsp;' . __('Hydravion Québec - All rights reserved', 'ng') !!} </p>
+        <p class="text-sm leading-6 text-white">{!! '©' . date('Y') . '&nbsp;' . __('Hydravion Québec - All rights reserved', 'ng') !!} </p>
         <a class="text-sm leading-6 text-white hover:text-secondary flex"
            href="https://hebertcommunication.com">DESIGN&nbsp;+&nbsp;WEB&nbsp;→
             <img decoding="async" loading="lazy" width="24" height="24"
